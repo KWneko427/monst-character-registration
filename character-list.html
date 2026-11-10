@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>個人用・登録済みキャラ管理</title>
+    <link rel="stylesheet" href="character-register.css?v=20261028-review-check" />
+    <link rel="stylesheet" href="character-list.css?v=20261028-review-check" />
+  </head>
+  <body class="manager-page">
+    <header>
+      <div><p class="private-label">このパソコンだけで使う個人用画面</p><h1>登録済みキャラ管理</h1><p>図鑑データの検索・確認・編集・削除を行います。</p></div>
+      <div class="header-actions"><a class="header-link" href="character-register.html">＋ 新しいキャラを登録</a><button id="exportButton" type="button">JSONを書き出す</button></div>
+    </header>
+    <main>
+      <section class="manager-panel">
+        <div class="manager-tools"><div><h2>図鑑データ一覧</h2><span id="count">0体</span></div><input id="search" type="search" placeholder="名前・読み・図鑑番号で検索" /></div>
+        <div class="filter-panel">
+          <label>属性<select id="filterAttribute"><option value="">すべて</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option></select></label>
+          <label>レアリティ<select id="filterRarity"><option value="">すべて</option><option value="6">☆6</option><option value="5">☆5</option><option value="4">☆4</option><option value="3">☆3</option><option value="2">☆2</option><option value="1">☆1</option></select></label>
+          <label>進化形態<select id="filterEvolution"><option value="">すべて</option><option>進化前</option><option>進化</option><option>神化</option><option>獣神化前</option><option>獣神化</option><option>獣神化・改</option><option>真獣神化前</option><option>真獣神化</option><option>その他</option></select></label>
+          <label>種族<select id="filterRace"><option value="">すべて</option></select></label>
+          <label>撃種<select id="filterHitType"><option value="">すべて</option><option>反射</option><option>貫通</option></select></label>
+          <label>戦型<select id="filterBattleType"><option value="">すべて</option><option>バランス型</option><option>パワー型</option><option>スピード型</option><option>砲撃型</option><option>超バランス型</option><option>超パワー型</option><option>超スピード型</option><option>超砲撃型</option></select></label>
+          <label>ゲージ<select id="filterGauge"><option value="">すべて</option><option value="yes">あり</option><option value="no">なし</option></select></label>
+          <label>確認チェック<select id="filterChecked"><option value="">すべて</option><option value="unchecked">未チェックのみ</option><option value="checked">チェック済みのみ</option></select></label>
+          <label class="ability-filter-label">アビリティ<button id="abilityFilterButton" class="filter-select-button ability-filter-button" type="button" aria-expanded="false">すべて</button></label>
+          <label>アビリティ条件<select id="filterAbilityMode"><option value="or">OR（どれかを含む）</option><option value="and">AND（すべて含む）</option></select></label>
+          <label>並べ替え<select id="sortOrder"><option value="numberDesc">図鑑番号が大きい順</option><option value="numberAsc">図鑑番号が小さい順</option><option value="nameAsc">名前順</option><option value="rarityDesc">レアリティが高い順</option></select></label>
+          <button id="resetFilters" type="button">条件をリセット</button>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>キャラ名</th><th>形態</th><th>種族</th><th>撃種</th><th>戦型</th><th>確認</th><th>操作</th></tr></thead><tbody id="characterRows"></tbody></table></div>
+        <p id="empty" class="empty-message" hidden>該当するキャラはいません。</p>
+      </section>
+    </main>
+    <div id="abilityFilterPicker" class="ability-filter-picker" hidden><div class="ability-filter-card"><div class="ability-filter-head"><strong>アビリティで絞り込み</strong><button id="abilityFilterClose" type="button">×</button></div><input id="abilityFilterSearch" type="search" placeholder="アビリティ名を検索" /><div id="abilityFilterOptions" class="ability-filter-options"></div><div class="ability-filter-actions"><button id="abilityFilterClear" type="button">選択を解除</button><button id="abilityFilterDone" class="primary" type="button">決定</button></div></div></div>
+    <div id="raceFilterPicker" class="ability-filter-picker race-filter-picker" hidden><div class="ability-filter-card race-filter-card"><div class="ability-filter-head"><strong>種族で絞り込み</strong><button id="raceFilterClose" type="button">×</button></div><input id="raceFilterSearch" type="search" placeholder="種族名を検索" /><div id="raceFilterOptions" class="race-filter-options"></div></div></div>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <script src="character-images.js?v=20261013-save-dialog"></script>
+    <script src="character-catalogs.js"></script>
+    <script src="character-list.js?v=20261028-review-check"></script>
+  </body>
+</html>

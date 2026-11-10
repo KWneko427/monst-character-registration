@@ -1,0 +1,242 @@
+:root { color-scheme: light; font-family: "Yu Gothic UI", "Meiryo", sans-serif; color: #18213a; background: #eef1f8; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+body.modal-open { overflow: hidden; overscroll-behavior: none; }
+button, input, select, textarea { font: inherit; }
+button, .file-button { border: 0; border-radius: 10px; padding: 11px 16px; cursor: pointer; font-weight: 700; }
+header { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 24px clamp(18px, 4vw, 56px); background: #3b2d80; color: white; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 6px; font-size: 26px; }
+header p { margin-bottom: 0; }
+.private-label { color: #ffd969; font-size: 13px; font-weight: 800; }
+.header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.header-actions button, .file-button { background: white; color: #352875; }
+.header-link { display: inline-flex; align-items: center; border-radius: 10px; padding: 11px 16px; background: #ffd969; color: #352875; text-decoration: none; font-weight: 800; }
+.file-button input { display: none; }
+main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; max-width: 1500px; margin: 22px auto; padding: 0 22px 50px; align-items: start; }
+.register-page main { grid-template-columns: minmax(0, 1fr); max-width: 1320px; }
+.editor-panel, .list-panel { background: white; border: 1px solid #dce1ee; border-radius: 16px; padding: 20px; box-shadow: 0 8px 26px rgba(42, 35, 88, .08); }
+.list-panel { position: sticky; top: 16px; max-height: calc(100vh - 32px); display: flex; flex-direction: column; }
+.section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.section-title h2 { margin-bottom: 14px; font-size: 20px; }
+fieldset { border: 1px solid #dfe3ef; border-radius: 12px; padding: 16px; margin: 0 0 16px; }
+legend { padding: 0 8px; color: #3b2d80; font-weight: 800; }
+.grid { display: grid; gap: 13px; }
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.wide { grid-column: 1 / -1; }
+.grid.two.basic-info-grid { grid-template-columns: 1fr; gap: 11px; }
+.basic-row { display: grid; gap: 12px; align-items: start; min-width: 0; }
+.basic-row-names, .basic-row-readings, .basic-row-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.basic-row-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.basic-classification { display: grid; gap: 10px; min-width: 0; }
+.basic-row-race-luck { grid-template-columns: minmax(190px, 220px) minmax(250px, 320px) minmax(0, 1fr); }
+.basic-row-race-luck .basic-race { order: -1; }
+.basic-row-combat { grid-template-columns: 3fr 9fr; }
+.basic-hit-gauge { display: grid; gap: 8px; min-width: 0; }
+.basic-hit-gauge .basic-gauge { min-height: 26px; }
+.basic-row > label { min-width: 0; }
+label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; }
+label[hidden] { display: none !important; }
+input, select, textarea { width: 100%; border: 1px solid #cfd5e4; border-radius: 9px; padding: 10px 11px; color: #18213a; background: white; }
+textarea { min-height: 78px; resize: vertical; }
+textarea.large { min-height: 120px; }
+input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181, .15); border-color: #5640b5; }
+.check { display: flex; align-items: center; gap: 8px; align-self: end; min-height: 42px; }
+.check input { width: 18px; height: 18px; }
+.stats-grid { display: grid; grid-template-columns: 100px 1fr 1fr; gap: 8px; align-items: center; }
+.stats-grid.no-gauge { grid-template-columns: 100px 1fr; }
+.stats-grid [hidden] { display: none; }
+.stats-corner { grid-column: 1; grid-row: 1; }
+.stats-without-head { grid-column: 2; grid-row: 1; }
+.stats-with-head { grid-column: 3; grid-row: 1; }
+.stats-hp-label { grid-column: 1; grid-row: 2; }
+.stats-hp-without { grid-column: 2; grid-row: 2; }
+.stats-hp-with { grid-column: 3; grid-row: 2; }
+.stats-attack-label { grid-column: 1; grid-row: 3; }
+.stats-attack-without { grid-column: 2; grid-row: 3; }
+.stats-attack-with { grid-column: 3; grid-row: 3; }
+.stats-speed-label { grid-column: 1; grid-row: 4; }
+.stats-speed-without { grid-column: 2; grid-row: 4; }
+.stats-speed-with { grid-column: 3; grid-row: 4; }
+.stats-grid strong { text-align: center; font-size: 13px; }
+.hint { color: #66708a; font-size: 12px; margin-bottom: 12px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.primary { background: #5640b5; color: white; }
+.danger { background: #fff0ee; color: #c83d2c; }
+.subtle { background: #eef1f8; color: #46506a; padding: 8px 11px; }
+#search { margin-bottom: 12px; }
+.character-list { overflow: auto; display: grid; gap: 8px; }
+.character-card { width: 100%; text-align: left; border: 1px solid #e0e4ef; background: #fafbfe; color: #18213a; padding: 11px; }
+.character-card:hover { border-color: #7665c7; background: #f5f2ff; }
+.character-card strong, .character-card span { display: block; }
+.character-card span { margin-top: 4px; color: #69728a; font-size: 12px; }
+.character-card.attr-火 { border-left: 6px solid #e34b3f; }
+.character-card.attr-水 { border-left: 6px solid #3989dc; }
+.character-card.attr-木 { border-left: 6px solid #3aa66b; }
+.character-card.attr-光 { border-left: 6px solid #dfa917; }
+.character-card.attr-闇 { border-left: 6px solid #7653a8; }
+.custom-select-button, .multi-select-trigger { width: 100%; min-height: 42px; padding: 9px 35px 9px 11px; border: 1px solid #cfd5e4; background: #fff; color: #18213a; text-align: left; font-weight: 400; position: relative; }
+.custom-select-button[data-field="race"] { width: 100%; min-height: 36px; padding: 7px 32px 7px 11px; }
+.custom-select-button::after, .multi-select-trigger::after { content: "⌄"; position: absolute; right: 12px; top: 9px; color: #6a7288; }
+.custom-select-button[data-field="attribute"][data-value="火"] { color: #c9342a; border-color: #e9aaa5; background: #fff6f5; }
+.custom-select-button[data-field="attribute"][data-value="水"] { color: #2272bd; border-color: #a8ccec; background: #f4f9ff; }
+.custom-select-button[data-field="attribute"][data-value="木"] { color: #218452; border-color: #a7d8bd; background: #f3fbf6; }
+.custom-select-button[data-field="attribute"][data-value="光"] { color: #9b7200; border-color: #e7d18b; background: #fffbec; }
+.custom-select-button[data-field="attribute"][data-value="闇"] { color: #674497; border-color: #c8b4e1; background: #faf6ff; }
+.custom-select-button[data-field="hitType"][data-value="反射"] { color: #c23c70; background: #fff5f9; }
+.custom-select-button[data-field="hitType"][data-value="貫通"] { color: #1765ad; background: #f2f8ff; }
+.quick-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); gap: 6px; }
+.quick-choices[data-field="rarity"] { grid-template-columns: repeat(6, 1fr); }
+.quick-choices[data-field="evolutionForm"] { grid-template-columns: repeat(5, 1fr); }
+.basic-info-grid .quick-choices[data-field="evolutionForm"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.basic-info-grid .quick-choices[data-field="rarity"] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.quick-choices[data-field="attribute"], .quick-choices[data-field$="FriendshipAttribute"], .quick-choices[data-field="catalogFriendshipAttribute"] { grid-template-columns: repeat(5, 1fr); }
+.quick-choices[data-field="luckSkill"] { grid-template-columns: repeat(4, 1fr); }
+.quick-choices[data-field="battleType"] { grid-template-columns: repeat(4, 1fr); }
+.quick-choices[data-field="hitType"] { grid-template-columns: repeat(2, 1fr); }
+.quick-choices button { min-width: 0; padding: 9px 7px; border: 1px solid #cfd5e4; border-radius: 8px; background: #fff; color: #4b556d; font-weight: 600; white-space: nowrap; }
+.quick-choices button:hover { border-color: #8e7fd0; background: #f7f5ff; }
+.quick-choices button.selected { border-color: #5640b5; background: #5640b5; color: #fff; box-shadow: 0 2px 7px rgba(86, 64, 181, .22); }
+.quick-choices[data-field="attribute"] button[data-value="火"] { color: #d84135; }
+.quick-choices[data-field="attribute"] button[data-value="水"] { color: #2b7cca; }
+.quick-choices[data-field="attribute"] button[data-value="木"] { color: #2e945e; }
+.quick-choices[data-field="attribute"] button[data-value="光"] { color: #a77800; }
+.quick-choices[data-field="attribute"] button[data-value="闇"] { color: #6d4a9f; }
+.quick-choices[data-field="attribute"] button[data-value="火"].selected { border-color: #d84135; background: #d84135; }
+.quick-choices[data-field="attribute"] button[data-value="水"].selected { border-color: #2b7cca; background: #2b7cca; }
+.quick-choices[data-field="attribute"] button[data-value="木"].selected { border-color: #2e945e; background: #2e945e; }
+.quick-choices[data-field="attribute"] button[data-value="光"].selected { border-color: #c79300; background: #c79300; }
+.quick-choices[data-field="attribute"] button[data-value="闇"].selected { border-color: #6d4a9f; background: #6d4a9f; }
+.quick-choices[data-field="attribute"] button.selected { color: #fff; }
+.quick-choices[data-field="hitType"] button[data-value="反射"].selected { border-color: #c84478; background: #c84478; }
+.quick-choices[data-field="hitType"] button[data-value="貫通"].selected { border-color: #2779bf; background: #2779bf; }
+.friendship-box { display: grid; grid-template-columns: 90px 1fr; gap: 8px; padding: 14px; border: 1px solid #e0e4ef; border-radius: 10px; }
+.friendship-box > strong { grid-column: 1 / -1; color: #3b2d80; }
+.friendship-box label { display: contents; }
+.friendship-box label::before { content: none; }
+.friendship-box input { min-width: 0; }
+.catalog-editor { margin-bottom: 14px; padding: 12px; border: 1px dashed #c8cde0; border-radius: 10px; background: #fafbfe; }
+.catalog-editor summary { cursor: pointer; color: #493990; font-weight: 800; }
+.catalog-editor .grid { margin: 12px 0; }
+.catalog-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker { position: fixed; inset: 0; z-index: 1000; padding: 24px; background: rgba(20, 22, 35, .56); }
+.picker[hidden] { display: none; }
+.picker-card { width: min(560px, 100%); height: min(780px, calc(100vh - 48px)); margin: 0 auto; padding: 16px; border-radius: 15px; background: white; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto auto; gap: 12px; box-shadow: 0 18px 60px rgba(0,0,0,.25); }
+.picker-head { display: flex; align-items: center; justify-content: space-between; }
+.picker-head button { padding: 5px 10px; background: #eef1f8; color: #36405a; }
+.picker-options { min-height: 120px; overflow: auto; display: grid; align-content: start; gap: 5px; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+.picker-option { display: flex; align-items: center; gap: 10px; padding: 9px; border: 1px solid #e1e5ef; border-radius: 8px; cursor: pointer; }
+.picker-option:hover { background: #f6f3ff; border-color: #9e91d7; }
+.picker-option input { width: 18px; height: 18px; }
+.picker[data-field="race"] .picker-card { width: min(920px, 100%); }
+.picker[data-field="race"] .picker-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; align-content: start; }
+.picker[data-field="race"] .picker-option { justify-content: center; min-height: 48px; padding: 9px 7px; background: linear-gradient(#f8faff, #edf1f9); border-color: #bdc8db; font-size: 15px; font-weight: 800; text-align: center; }
+.picker[data-field="race"] .picker-option:has(input:checked) { border-color: #5640b5; background: #eae5ff; color: #392783; box-shadow: inset 0 0 0 1px #7562c7; }
+.picker[data-field="race"] .picker-option input { position: absolute; opacity: 0; pointer-events: none; }
+.race-divider { grid-column: 1 / -1; height: 1px; margin: 8px 0 2px; background: #aeb7c8; }
+.ability-summary { display: grid; gap: 7px; margin-top: 10px; }
+.ability-summary > div { display: grid; grid-template-columns: minmax(160px,1fr) auto auto; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px; background: #f6f4ff; font-size: 13px; }
+.ability-summary strong { color: #493990; }
+.ability-summary .empty { color: #7b8295; font-size: 12px; }
+.ability-summary-kinds, .ability-summary-actions { display: flex; gap: 4px; }
+.ability-summary-kinds button, .ability-summary-actions button { min-height: 30px; padding: 5px 9px; background: #fff; color: #59627a; font-size: 11px; }
+.ability-summary-kinds button.selected { background: #5640b5; color: #fff; }
+.ability-summary-actions .remove { color: #c43b2c; }
+.connect-condition { margin-top: 13px; }
+.ability-picker-card { width: min(850px, 100%); height: min(800px, calc(100vh - 48px)); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto; overflow: hidden; }
+.ability-navigation { display: flex; align-items: center; gap: 10px; min-height: 34px; }
+.ability-navigation button { padding: 6px 11px; background: #eceff6; color: #48526a; }
+.ability-navigation p { margin: 0; color: #493990; font-size: 12px; font-weight: 800; }
+.ability-nav-card { min-height: 54px; padding: 10px; border: 1px solid #bdc8db; border-radius: 9px; background: linear-gradient(#f8faff,#edf1f9); color: #303b55; font-size: 14px; font-weight: 800; text-align: center; }
+.ability-nav-card:hover { border-color: #7562c7; background: #eeeaff; color: #392783; }
+.ability-root-layout { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr; gap: 14px; align-items: start; }
+.ability-root-layout section { min-width: 0; padding: 10px; border: 1px solid #dfe3ee; border-radius: 11px; background: #fafbfe; }
+.ability-root-layout section > h4 { margin: 0 0 9px; color: #493990; font-size: 13px; }
+.ability-root-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); grid-auto-rows: 58px; gap: 7px; }
+.ability-root-grid .ability-nav-card, .ability-root-grid .ability-row { width: 100%; height: 58px; min-width: 0; box-sizing: border-box; }
+.ability-root-grid .ability-row { padding: 4px 7px; gap: 2px; border-color: #bdc8db; background: linear-gradient(#f8faff,#edf1f9); }
+.ability-root-grid .ability-row:has(input:checked) { border-color: #7764cd; background: #eeeaff; }
+.ability-root-grid .ability-row > strong { font-size: 11px; }
+.ability-root-grid .ability-row .ability-kinds { gap: 3px; }
+.ability-root-grid .ability-row .ability-kinds label { min-height: 24px; padding: 1px 3px; font-size: 10px; }
+.ability-root-grid .ability-row .ability-kinds input { width: 13px; height: 13px; }
+.ability-guide { margin: 0; color: #606a82; font-size: 12px; }
+.ability-row { min-width: 0; padding: 10px; border: 1px solid #e1e5ef; border-radius: 10px; background: #fff; display: grid; gap: 9px; }
+.ability-row > strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.ability-row:has(input:checked) { border-color: #7764cd; background: #f2efff; box-shadow: 0 2px 8px rgba(86, 64, 181, .16); }
+.ability-row:has(input:checked) > strong { color: #3f2d91; }
+.ability-kinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.ability-kinds label { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 34px; padding: 5px; border: 1px solid #dfe3ee; border-radius: 7px; background: #fafbfe; cursor: pointer; font-size: 11px; }
+.ability-kinds label:has(input:checked) { border-color: #6652bf; background: #eeeaff; color: #3f2d91; font-weight: 800; }
+.ability-kinds input { width: 15px; height: 15px; }
+.ability-options { min-height: 0; max-height: none; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; padding-right: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: start; gap: 8px; }
+.ability-group-title { grid-column: 1 / -1; margin: 7px 0 0; padding: 7px 9px; border-left: 4px solid #5640b5; background: #f1eefc; color: #403080; font-size: 13px; }
+#notice { position: fixed; right: 18px; bottom: 18px; max-width: 360px; background: #177a59; color: white; border-radius: 10px; padding: 12px 16px; box-shadow: 0 8px 26px rgba(0,0,0,.18); opacity: 0; pointer-events: none; transition: opacity .2s; }
+#notice.show { opacity: 1; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } .list-panel { position: static; max-height: none; } }
+@media (max-width: 820px) { .ability-options { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ability-root-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .basic-row-race-luck { grid-template-columns: 1fr; } .basic-row-race-luck .basic-race { order: initial; } }
+@media (max-width: 620px) { header { align-items: flex-start; flex-direction: column; } main { padding: 0 10px 36px; } .editor-panel, .list-panel { padding: 14px; } .grid.two, .grid.three { grid-template-columns: 1fr; } .basic-row { grid-template-columns: 1fr; } .basic-row-race-luck .basic-race { order: initial; } .stats-grid { grid-template-columns: 76px 1fr 1fr; } .stats-grid.no-gauge { grid-template-columns: 76px 1fr; } .friendship-box { grid-template-columns: 70px 1fr; } .quick-choices[data-field] { grid-template-columns: repeat(3, 1fr); } .quick-choices[data-field="attribute"], .quick-choices[data-field$="FriendshipAttribute"], .quick-choices[data-field="catalogFriendshipAttribute"] { grid-template-columns: repeat(5, 1fr); } .quick-choices[data-field="hitType"] { grid-template-columns: repeat(2, 1fr); } .ability-options { grid-template-columns: 1fr; } }
+
+.character-icon{object-fit:contain;flex:none;border-radius:8px;width:72px;height:72px}.character-with-icon{display:flex;align-items:center;gap:12px}.character-icon-missing{display:inline-flex;align-items:center;justify-content:center;width:72px;min-width:72px;height:72px;font-size:10px;color:#667085;background:#edf0f4;border-radius:8px}.character-image-editor{display:flex;align-items:center;gap:16px;margin:8px 0 18px}.character-image-editor label{flex:1}.character-image-editor .character-icon{width:96px;height:96px}
+
+/* Local icon frame; source artwork stays unchanged. */
+.character-icon{box-sizing:border-box;padding:2px;background:#242032;border:1px solid #75668e;border-radius:9px;box-shadow:0 1px 3px #22173730}
+
+/* Supplied GameWith icons already include their frame. */
+.character-icon{padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;object-fit:contain}
+
+.registration-check-wrap { display: grid; align-content: end; gap: 3px; }
+.registration-check { font-size: 14px; font-weight: 800; color: #3b2d80; }
+.registration-check input:disabled { opacity: 1; accent-color: #177a59; }
+.registration-check-wrap .hint { margin: 0; }
+
+.picker-add-friendship { width:100%; margin:0; padding:12px; border:1px dashed #7764c6; border-radius:9px; background:#f7f5ff; color:#483291; font-weight:800; }
+.quick-choices[data-field$="FriendshipAttribute"], .quick-choices[data-field="catalogFriendshipAttribute"] { grid-template-columns:repeat(7,minmax(0,1fr)); }
+.quick-choices[data-field$="FriendshipAttribute"] button, .quick-choices[data-field="catalogFriendshipAttribute"] button { padding:9px 3px; }
+
+
+.friendship-box select[data-friendship-power] { display:block; width:100%; min-height:39px; padding:8px; border:1px solid #cfd5e4; border-radius:8px; background:#fff; color:#303b55; font-weight:700; }
+.friendship-box select[data-friendship-power]:focus { outline:2px solid #9e91d7; outline-offset:1px; }
+.quick-choices button:disabled { cursor:not-allowed; opacity:.42; }
+
+.basic-luck.locked { padding:8px; border:1px solid #d7dbe2; border-radius:10px; background:#edf0f4; color:#78818f; }
+.basic-luck.locked .quick-choices { position:relative; }
+.basic-luck.locked .quick-choices button { background:#e3e6eb; color:#8a929e; border-color:#d1d5dc; }
+
+.quick-choices[data-field$="FriendshipAttribute"] button[data-value="火"], .quick-choices[data-field="catalogFriendshipAttribute"] button[data-value="火"] { color:#d84135; }
+.quick-choices[data-field$="FriendshipAttribute"] button[data-value="水"], .quick-choices[data-field="catalogFriendshipAttribute"] button[data-value="水"] { color:#2b7cca; }
+.quick-choices[data-field$="FriendshipAttribute"] button[data-value="木"], .quick-choices[data-field="catalogFriendshipAttribute"] button[data-value="木"] { color:#2e945e; }
+.quick-choices[data-field$="FriendshipAttribute"] button[data-value="光"], .quick-choices[data-field="catalogFriendshipAttribute"] button[data-value="光"] { color:#a77800; }
+.quick-choices[data-field$="FriendshipAttribute"] button[data-value="闇"], .quick-choices[data-field="catalogFriendshipAttribute"] button[data-value="闇"] { color:#6d4a9f; }
+.quick-choices[data-field$="FriendshipAttribute"] button.selected, .quick-choices[data-field="catalogFriendshipAttribute"] button.selected { color:#fff; }
+
+
+.picker-friendship-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.picker-remove-friendship { width:100%; margin:0; padding:12px; border:1px solid #e1a4aa; border-radius:9px; background:#fff5f5; color:#a33240; font-weight:800; }
+.picker-remove-friendship:hover { background:#ffe9eb; }
+
+.remove-friendship-power { grid-column:2; justify-self:start; margin-top:-3px; padding:5px 9px; border:1px solid #e1a4aa; border-radius:7px; background:#fff5f5; color:#a33240; font-size:12px; font-weight:700; }
+.remove-friendship-power:hover { background:#ffe9eb; }
+@media (max-width:620px) { .remove-friendship-power { grid-column:1 / -1; } }
+
+.new-friendship-power { grid-column:2; display:flex; gap:6px; align-items:center; }
+.new-friendship-power input { min-width:0; flex:1; padding:7px; border:1px solid #bcb5db; border-radius:7px; }
+.new-friendship-power button { padding:7px 9px; border-radius:7px; font-size:12px; font-weight:700; }
+.new-friendship-power button[data-add-friendship-power] { background:#5944b0; color:#fff; }
+.new-friendship-power button[data-cancel-friendship-power] { background:#eff1f5; color:#596278; }
+@media (max-width:620px) { .new-friendship-power { grid-column:1 / -1; } }
+
+.new-friendship-power[hidden] { display:none; }
+
+.quick-choices button.attribute-locked { opacity:.35; filter:grayscale(.8); cursor:not-allowed; }
+
+.friendship-box.friendship-unselected [data-friendship-power], .friendship-box.friendship-unselected input[name$="FriendshipDescription"] { opacity:.45; background:#edf0f4; color:#87909f; }
+.friendship-box.friendship-unselected .remove-friendship-power { opacity:.42; pointer-events:none; }
+
+.picker-friendship-actions[hidden] { display:none; }
+
+/* 副友情は進化形態を選ぶまで使用不可。 */
+.friendship-box.friendship-disabled { opacity:.42; background:#edf0f4; filter:grayscale(.75); }
+.friendship-box.friendship-disabled > strong { color:#737b89; }
+.friendship-box.friendship-disabled input, .friendship-box.friendship-disabled select, .friendship-box.friendship-disabled button { cursor:not-allowed; }

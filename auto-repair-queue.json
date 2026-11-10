@@ -1,0 +1,327 @@
+{
+  "revision": "20261110-9135",
+  "friendshipCatalog": [
+    {
+      "name": "エナジースパーク",
+      "power": 615000,
+      "attribute": "木",
+      "description": "ふれた味方に付与されたエナジースパークで攻撃"
+    },
+    {
+      "name": "エナジースパーク",
+      "power": 439282,
+      "attribute": "木",
+      "description": "ふれた味方に付与されたエナジースパークで攻撃"
+    },
+    {
+      "name": "超強ウォールボム",
+      "power": 717500,
+      "attribute": "光",
+      "description": "敵を貫通し壁で爆発する弾をふれたキャラの進行方向に発射"
+    },
+    {
+      "name": "攻撃ダウンメテオ",
+      "power": 215250,
+      "attribute": "無属性",
+      "description": "6発の攻撃ダウンメテオがランダムで敵を攻撃"
+    },
+    {
+      "name": "超強ウォールボム",
+      "power": 717500,
+      "attribute": "無属性",
+      "description": "敵を貫通し壁で爆発する強力な弾をふれた味方の進行方向に発射"
+    },
+    {
+      "name": "友スピアップ",
+      "power": 0,
+      "attribute": "無属性",
+      "description": "仲間が友情コンボ威力＆スピードアップ"
+    },
+    {
+      "name": "爆絶爆発",
+      "power": 193495,
+      "attribute": "無属性",
+      "description": "自分を中心に無属性の爆絶爆発攻撃"
+    },
+    {
+      "name": "鋭角3方向追従型貫通弾",
+      "power": 6246,
+      "attribute": "闇",
+      "description": "ふれた味方を追従する3方向貫通弾で攻撃"
+    },
+    {
+      "name": "鋭角3方向追従型貫通弾",
+      "power": 4460,
+      "attribute": "闇",
+      "description": "ふれた味方を追従する3方向貫通弾で攻撃"
+    },
+    {
+      "name": "超強シャイニングピラー",
+      "power": 615000,
+      "attribute": "無属性",
+      "description": "ランダムな位置に強力な無属性の光の柱で攻撃"
+    }
+  ],
+  "patches": [
+    {
+      "encyclopediaNumber": 9142,
+      "changes": {
+        "officialNameReading": "もんがくをざつにみだすもの あばうと",
+        "commonNameReading": "あばうと",
+        "stats": {
+          "attack": {
+            "withoutGauge": 23943,
+            "withGauge": 28731
+          }
+        },
+        "strikeShot": {
+          "name": "アナタが感じる青春は、真実か嘘か",
+          "turns": "20",
+          "description": "スピードとパワーがアップ＆停止後に最初にふれた味方に巨大バリアを付与"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "エナジースパーク",
+              "power": 615000,
+              "attribute": "木",
+              "description": "ふれた味方に付与されたエナジースパークで攻撃"
+            }
+          ],
+          "sub": []
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9141,
+      "changes": {
+        "officialNameReading": "あばうと",
+        "commonNameReading": "あばうと",
+        "strikeShot": {
+          "name": "惑いの報",
+          "turns": "12",
+          "description": "スピードがアップ"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "エナジースパーク",
+              "power": 439282,
+              "attribute": "木",
+              "description": "ふれた味方に付与されたエナジースパークで攻撃"
+            }
+          ],
+          "sub": []
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9140,
+      "changes": {
+        "officialNameReading": "せかいをとどめるもの すたばーん",
+        "commonNameReading": "すたばーん",
+        "stats": {
+          "attack": {
+            "withoutGauge": 21806,
+            "withGauge": 26167
+          }
+        },
+        "strikeShot": {
+          "name": "変化の波を沈め、世界の新風を凪く",
+          "turns": "12+8",
+          "description": "スピードとパワーがアップ＆シールドンとビットンに大ダメージ"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "超強ウォールボム",
+              "power": 717500,
+              "attribute": "光",
+              "description": "敵を貫通し壁で爆発する弾をふれたキャラの進行方向に発射"
+            }
+          ],
+          "sub": [
+            {
+              "name": "攻撃ダウンメテオ",
+              "power": 215250,
+              "attribute": "無属性",
+              "description": "6発の攻撃ダウンメテオがランダムで敵を攻撃"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9139,
+      "changes": {
+        "officialNameReading": "すたばーん",
+        "commonNameReading": "すたばーん",
+        "stats": {
+          "hp": {
+            "withoutGauge": 19790,
+            "withGauge": null
+          },
+          "attack": {
+            "withoutGauge": 16256,
+            "withGauge": null
+          },
+          "speed": {
+            "withoutGauge": 269.87,
+            "withGauge": null
+          }
+        },
+        "strikeShot": {
+          "name": "愚物の錨",
+          "turns": "20",
+          "description": "スピードとパワーがアップ＆シールドンとビットンに大ダメージ"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "超強ウォールボム",
+              "power": 717500,
+              "attribute": "無属性",
+              "description": "敵を貫通し壁で爆発する強力な弾をふれた味方の進行方向に発射"
+            }
+          ],
+          "sub": []
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9138,
+      "changes": {
+        "officialNameReading": "にゅーよーくによりそう てでぃべあがーる あっぷる",
+        "commonNameReading": "あっぷる",
+        "abilities": {
+          "base": [
+            "超アンチ重力バリア",
+            "アンチダメージウォール",
+            "アンチ魔法陣",
+            "壁SSターン短縮"
+          ],
+          "gauge": [],
+          "connect": [
+            "超マインスイーパーM",
+            "カウンターキラー",
+            "重力バリアキラー"
+          ],
+          "connectCondition": "スピード型以外が2体以上／反射が2体以上"
+        },
+        "strikeShot": {
+          "name": "ビッグアップル・ベアーズパトロール",
+          "turns": "20+8",
+          "description": "スピードとパワーがアップ＆弱点ヒットで敵がマヒ"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "友スピアップ",
+              "power": 0,
+              "attribute": "無属性",
+              "description": "仲間が友情コンボ威力＆スピードアップ"
+            }
+          ],
+          "sub": [
+            {
+              "name": "爆絶爆発",
+              "power": 193495,
+              "attribute": "無属性",
+              "description": "自分を中心に無属性の爆絶爆発攻撃"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9137,
+      "changes": {
+        "officialNameReading": "もんがくのほこりたかきすいそうがくぶだんちょう あもんまもる",
+        "commonNameReading": "あもんまもる",
+        "stats": {
+          "attack": {
+            "withoutGauge": 32366,
+            "withGauge": 38839
+          }
+        },
+        "strikeShot": {
+          "name": "熱血のイグナイト・パフォーマンス",
+          "turns": "12",
+          "description": "スピードとパワーがアップ＆停止後に一定期間、アクセラレータ状態になる"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "鋭角3方向追従型貫通弾",
+              "power": 6246,
+              "attribute": "闇",
+              "description": "ふれた味方を追従する3方向貫通弾で攻撃"
+            }
+          ],
+          "sub": []
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9136,
+      "changes": {
+        "officialNameReading": "あもんまもる",
+        "commonNameReading": "あもんまもる",
+        "luckSkill": "",
+        "strikeShot": {
+          "name": "吹奏楽部の全力パート練習",
+          "turns": "12",
+          "description": "スピードがアップ"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "鋭角3方向追従型貫通弾",
+              "power": 4460,
+              "attribute": "闇",
+              "description": "ふれた味方を追従する3方向貫通弾で攻撃"
+            }
+          ],
+          "sub": []
+        }
+      }
+    },
+    {
+      "encyclopediaNumber": 9135,
+      "changes": {
+        "officialNameReading": "おもいでをとらえるもんがくのしゃしんぶこもん たつみあかり",
+        "commonNameReading": "たつみあかり",
+        "stats": {
+          "attack": {
+            "withoutGauge": 24581,
+            "withGauge": 29497
+          }
+        },
+        "strikeShot": {
+          "name": "ハッピースマイルメモリアル",
+          "turns": "16",
+          "description": "スピードとパワーがアップ＆敵にふれる毎に雷がランダムで敵を攻撃"
+        },
+        "friendshipCombos": {
+          "main": [
+            {
+              "name": "超強シャイニングピラー",
+              "power": 615000,
+              "attribute": "無属性",
+              "description": "ランダムな位置に強力な無属性の光の柱で攻撃"
+            }
+          ],
+          "sub": []
+        }
+      }
+    }
+  ],
+  "friendshipCandidates": [
+    {
+      "name": "超強ウォールボム",
+      "power": 717500,
+      "attribute": "無属性",
+      "description": "敵を貫通し壁で爆発する強力な弾をふれた味方の進行方向に発射"
+    }
+  ]
+}

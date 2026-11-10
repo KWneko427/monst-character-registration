@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>個人用・キャラ図鑑登録</title>
+    <link rel="stylesheet" href="character-register.css?v=20261110-picker-actions" />
+  </head>
+  <body class="register-page">
+    <header>
+      <div>
+        <p class="private-label">このパソコンだけで使う個人用画面</p>
+        <h1>キャラ図鑑登録</h1>
+        <p>「このキャラを保存」で同じブラウザーの別タブとデータを共有します。</p>
+      </div>
+      <div class="header-actions">
+        <a class="header-link" href="character-list.html">登録済みキャラを管理</a>
+        <label class="file-button">JSONを読み込む<input id="importFile" type="file" accept="application/json,.json" /></label>
+        <button id="exportButton" type="button">JSONを書き出す</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="editor-panel">
+        <div class="section-title">
+          <h2 id="editorTitle">新しいキャラを登録</h2>
+          <button id="clearButton" class="subtle" type="button">入力を空にする</button>
+        </div>
+
+        <form id="characterForm">
+          <fieldset>
+            <legend>名前と基本情報</legend>
+            <div class="character-image-editor"><img id="characterImagePreview" class="character-icon" alt="キャラアイコン" width="96" height="96" hidden><div style="flex:1"><label>キャラ画像URL<input name="imageUrl" type="url" placeholder="URLを使う場合のみ入力" /></label><input name="imageData" type="hidden"><input name="imageFile" type="hidden"><input name="imageRemoved" type="hidden"><label>ファイルから画像を選択<input id="characterImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label><button id="pasteCharacterImage" type="button">コピーした画像を貼り付け</button><button id="clearCharacterImage" type="button">選択画像を解除</button><button id="removeCharacterImage" type="button">画像をなくす</button><p id="characterImageStatus" role="status">画像をコピーして、この画面で Ctrl+V でも貼り付けできます。選択後は「このキャラを保存」を押してください。</p></div></div>
+            <div class="grid two basic-info-grid">
+              <div class="basic-row basic-row-names">
+              <label>正式キャラ名 *<input name="officialName" required /></label>
+              <label>よく使うキャラ名<input name="commonName" placeholder="正式名の途中一致でも検索できます" /></label>
+              </div>
+              <div class="basic-row basic-row-readings">
+              <label>正式キャラ名の読み仮名<input name="officialNameReading" /></label>
+              <label>よく使う名前の読み仮名<input name="commonNameReading" /></label>
+              </div>
+              <div class="basic-row basic-row-numbers">
+              <label class="basic-number">図鑑番号 *<input name="encyclopediaNumber" type="number" min="1" required /></label>
+              <label class="basic-related">関連する図鑑番号<input name="evolutionGroupNumbers" placeholder="例：100、101、102" /></label>
+              </div>
+              <div class="basic-row basic-row-acquisition">
+              <label>入手方法<select name="acquisition"><option value="">未選択</option><option>限定</option><option>恒常</option><option>α</option><option>コラボ</option><option>☆5</option><option>その他</option><option>コラボその他</option></select></label>
+              </div>
+              <div class="basic-row basic-row-form">
+              <label class="basic-evolution">進化形態<select name="evolutionForm"><option value=""></option><option>進化前</option><option>進化</option><option>神化</option><option>獣神化前</option><option>獣神化</option><option>獣神化・改</option><option>真獣神化前</option><option>真獣神化</option><option>その他</option></select></label>
+              <div class="basic-classification">
+              <label class="basic-rarity">レアリティ<select name="rarity"><option value=""></option><option value="6">☆6</option><option value="5">☆5</option><option value="4">☆4</option><option value="3">☆3</option><option value="2">☆2</option><option value="1">☆1</option></select></label>
+              </div>
+              </div>
+              <div class="basic-row basic-row-race-luck">
+              <label class="basic-attribute">属性<select name="attribute"><option value=""></option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option></select></label>
+              <label class="basic-luck">ラックスキル<select name="luckSkill"><option value=""></option><option>クリティカル</option><option>シールド</option><option>ガイド</option><option>友情コンボクリティカル</option></select></label>
+              <label class="basic-race">種族<select name="race"><option value="">種族を選ぶ</option><option>ドラゴン</option><option>ロボット</option><option>魔人</option><option>神</option><option>鳥</option><option>獣</option><option>亜人</option><option>魔族</option><option>妖精</option><option>鉱物</option><option>魔王</option><option>幻獣</option><option>コスモ</option><option>ユニバース</option><option>聖騎士</option><option>サムライ</option><option>ユニオン</option><option>アクシス</option><option>幻妖</option><option>闘神</option><option>神獣</option><option>聖域の狩人</option><option>LINE</option><option>怪獣</option><option>ウルトラ兄弟</option><option>エヴァパイロット</option><option>使徒</option><option>ゴジエヴァ</option><option>ファイター</option><option>妖怪</option><option>青銅聖闘士</option><option>黄金聖闘士</option><option>マベツム</option><option>ホムンクルス</option><option>怪異</option><option>巨人</option><option>魔神</option><option>人形</option><option>キメラアント</option><option>ミッキー&amp;フレンズ</option><option>死神</option><option>バーニッシュ</option><option>ボーダー隊員</option><option>近界民</option><option>十刃</option><option>仮面の軍勢</option></select></label>
+              </div>
+              <div class="basic-row basic-row-combat">
+              <div class="basic-hit-gauge">
+              <label class="basic-hit">撃種<select name="hitType"><option value=""></option><option>反射</option><option>貫通</option></select></label>
+              <label class="check basic-gauge"><input name="hasGauge" type="checkbox" />ゲージを持っている</label>
+              </div>
+              <label class="basic-battle">戦型<select name="battleType"><option value=""></option><option>バランス型</option><option>パワー型</option><option>スピード型</option><option>砲撃型</option><option>超バランス型</option><option>超パワー型</option><option>超スピード型</option><option>超砲撃型</option></select></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>ステータス（レベル最大・タス込み）</legend>
+            <div class="stats-grid">
+              <strong class="stats-corner"></strong><strong class="stats-without-head">ゲージなし</strong><strong class="stats-with-head" data-gauge-only>ゲージあり</strong>
+              <span class="stats-hp-label">HP</span><input class="stats-hp-without" name="hpWithoutGauge" type="number" min="0" /><input class="stats-hp-with" name="hpWithGauge" data-gauge-only type="number" min="0" />
+              <span class="stats-attack-label">攻撃力</span><input class="stats-attack-without" name="attackWithoutGauge" type="number" min="0" /><input class="stats-attack-with" name="attackWithGauge" data-gauge-only type="number" min="0" />
+              <span class="stats-speed-label">スピード</span><input class="stats-speed-without" name="speedWithoutGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" /><input class="stats-speed-with" name="speedWithGauge" data-gauge-only type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>アビリティ</legend>
+            <p class="hint">アビリティを選び、どの種類として持っているかチェックします。</p>
+            <input name="baseAbilities" type="hidden" />
+            <input name="gaugeAbilities" type="hidden" />
+            <input name="connectAbilities" type="hidden" />
+            <button id="abilityPickerButton" class="multi-select-trigger" type="button">アビリティを選択</button>
+            <div id="abilitySummary" class="ability-summary"></div>
+            <label id="connectConditionField" class="connect-condition" hidden>コネクトスキルの発動条件<textarea name="connectCondition" placeholder="例：自身と種族が異なるキャラが2体以上、または合計ラック100以上"></textarea></label>
+          </fieldset>
+
+          <fieldset id="trueBeastFields">
+            <legend>真獣神化スキル</legend>
+            <div class="grid two">
+              <label>ショットスキル<textarea name="shotSkillDescription"></textarea></label>
+              <label>アシストスキル<textarea name="assistSkillDescription"></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>ストライクショット（SS）</legend>
+            <div class="grid two">
+              <label>SS名<input name="strikeShotName" /></label>
+              <label>ターン数<input name="strikeShotTurns" placeholder="例：12+12" /></label>
+              <label class="wide">SS説明・効果<textarea name="strikeShotDescription"></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>友情コンボ</legend>
+            <p class="hint">友情名を選ぶと、登録済みの威力・属性・説明を自動入力します。</p>
+            <details class="catalog-editor">
+              <summary>新しい友情コンボを候補へ登録</summary>
+              <div class="grid two">
+                <label>友情名<input id="catalogFriendshipName" /></label>
+                <label>威力<input id="catalogFriendshipPower" type="number" min="0" /></label>
+                <label>属性区分<select id="catalogFriendshipAttributeMode"><option value="five">5属性</option><option value="all">全属性</option><option value="none">無属性</option></select></label>
+                <label>説明<input id="catalogFriendshipDescription" /></label>
+              </div>
+              <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="removeFriendshipCatalog" class="danger" type="button">入力した候補を削除</button></div>
+            </details>
+            <div class="grid two">
+              <div class="friendship-box"><strong>友情コンボ</strong><label>名前<select name="mainFriendshipName" data-friendship="main"><option value="">なし</option></select></label><label>威力<select name="mainFriendshipPower" data-friendship-power="main"></select></label><div class="new-friendship-power" data-new-friendship-power="main" hidden><input type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="main">追加</button><button type="button" data-cancel-friendship-power="main">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="main">選んだ威力を削除</button><label>属性<select name="mainFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="mainFriendshipDescription" readonly /></label></div>
+              <div class="friendship-box"><strong>副友情コンボ</strong><label>名前<select name="subFriendshipName" data-friendship="sub"><option value="">なし</option></select></label><label>威力<select name="subFriendshipPower" data-friendship-power="sub"></select></label><div class="new-friendship-power" data-new-friendship-power="sub" hidden><input type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="sub">追加</button><button type="button" data-cancel-friendship-power="sub">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="sub">選んだ威力を削除</button><label>属性<select name="subFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="subFriendshipDescription" readonly /></label></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>確認元</legend>
+            <div class="grid two">
+              <label>情報を確認したURL<input name="source" type="url" /></label>
+              <label>確認日<input name="verifiedAt" type="date" /></label>
+              <div class="registration-check-wrap"><label class="check registration-check"><input name="isChecked" type="checkbox" />入力内容を確認済みにする</label><p id="registrationCheckHint" class="hint">自動登録では、内容を確認してからチェックしてください。</p></div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="primary" type="submit">このキャラを保存</button>
+            <button id="deleteButton" class="danger" type="button" hidden>このキャラを削除</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <div id="picker" class="picker" hidden><div class="picker-card"><div class="picker-head"><strong id="pickerTitle">候補を選択</strong><button id="pickerClose" type="button">×</button></div><input id="pickerSearch" type="search" placeholder="途中の文字でも検索できます" /><div id="pickerOptions" class="picker-options"></div><div id="pickerFriendshipActions" class="picker-friendship-actions" hidden><button id="pickerAddFriendship" class="picker-add-friendship" type="button">＋ 友情を追加</button><button id="pickerRemoveFriendship" class="picker-remove-friendship" type="button">選んだ友情候補を削除</button></div><button id="pickerDone" class="primary" type="button">決定</button></div></div>
+    <div id="abilityPicker" class="picker" hidden><div class="picker-card ability-picker-card"><div class="picker-head"><strong>アビリティを選択</strong><button id="abilityPickerClose" type="button">×</button></div><input id="abilitySearch" type="search" placeholder="アビリティ名を途中の文字から検索" /><div class="ability-navigation"><button id="abilityBack" type="button" hidden>← 戻る</button><p id="abilityBreadcrumb">分類を選択</p></div><p class="ability-guide">最終候補で種類を選択：<b>素</b>／<b>ゲージ</b>／<b>コネクト</b></p><div id="abilityOptions" class="picker-options ability-options"></div><button id="abilityPickerDone" class="primary" type="button">決定</button></div></div>
+    <script src="character-images.js?v=20261110-image-preview"></script>
+    <script src="character-catalogs.js?v=20261110-in-position-killer-v2"></script>
+    <script src="character-register.js?v=20261111-required-friendship"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
