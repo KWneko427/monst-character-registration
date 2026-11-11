@@ -130,8 +130,13 @@
           <fieldset>
             <legend>確認元</legend>
             <div class="grid two">
-              <label>情報を確認したURL<input name="source" type="url" /></label>
+              <label>確認元URL 1<input name="source" type="url" /></label>
+              <label>確認元URL 2（別サイト）<input name="secondSource" type="url" /></label>
               <label>確認日<input name="verifiedAt" type="date" /></label>
+              <label class="wide check"><input name="sourcesAgree" type="checkbox" />2つ以上の別サイトで内容が一致することを確認しました</label>
+              <label class="wide check"><input name="hasMissingItems" type="checkbox" />形態上必要な項目を確認したが、埋められない項目がある</label>
+              <label id="missingFieldsNoteField" class="wide" hidden>不足している項目と調査内容<textarea name="missingFieldsNote" placeholder="例：SS名。確認元URL 1・2には効果のみ掲載。公式情報待ち。"></textarea></label>
+              <label id="completionApprovalField" class="wide check" hidden><input name="completionApproval" type="checkbox" />不足メモを残し、次のキャラへ進む許可を得ました</label>
               <div class="registration-check-wrap"><label class="check registration-check"><input name="isChecked" type="checkbox" />入力内容を確認済みにする</label><p id="registrationCheckHint" class="hint">自動登録では、内容を確認してからチェックしてください。</p></div>
             </div>
           </fieldset>
