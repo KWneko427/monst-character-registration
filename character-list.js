@@ -1,11 +1,12 @@
 const STORAGE_KEY="wakuwaku-private-character-master-v1",search=document.querySelector("#search"),rows=document.querySelector("#characterRows"),notice=document.querySelector("#notice");
 let master=load();
+const sharedReady=window.SharedMasterStore?.start(master);
 const filterIds=["filterAttribute","filterRarity","filterEvolution","filterRace","filterHitType","filterBattleType","filterGauge","filterChecked","filterAbilityMode","sortOrder"];
 const RACES=["ドラゴン","ロボット","魔人","神","鳥","獣","亜人","魔族","妖精","鉱物","魔王","幻獣","コスモ","ユニバース","聖騎士","サムライ","ユニオン","アクシス","幻妖","闘神","神獣","聖域の狩人","LINE","怪獣","ウルトラ兄弟","エヴァパイロット","使徒","ゴジエヴァ","ファイター","妖怪","青銅聖闘士","黄金聖闘士","マベツム","ホムンクルス","怪異","巨人","魔神","人形","キメラアント","ミッキー&フレンズ","死神","バーニッシュ","ボーダー隊員","近界民","十刃","仮面の軍勢"];
 let selectedAbilities=[],abilityFilterBeforeOpen=[];
 function load(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{characters:[]}}catch{return{characters:[]}}}
 function esc(value){const div=document.createElement("div");div.textContent=String(value??"");return div.innerHTML}
-function save(){master.updatedAt=new Date().toLocaleDateString("sv-SE");localStorage.setItem(STORAGE_KEY,JSON.stringify(master))}
+function save(){master.updatedAt=new Date().toLocaleDateString("sv-SE");localStorage.setItem(STORAGE_KEY,JSON.stringify(master));return window.SharedMasterStore?.save(master)||Promise.resolve(true)}
 function toast(message){notice.textContent=message;notice.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>notice.classList.remove("show"),2400)}
 function matchingNumbers(query){const direct=master.characters.filter(character=>[character.encyclopediaNumber,character.officialName,character.commonName,character.officialNameReading,character.commonNameReading].some(value=>String(value??"").toLowerCase().includes(query)));const numbers=new Set(direct.map(character=>character.encyclopediaNumber));direct.forEach(character=>(character.evolutionGroupNumbers||[]).forEach(number=>numbers.add(number)));return numbers}
 function filterValue(id){return document.querySelector(`#${id}`).value}
@@ -54,3 +55,8 @@ rows.addEventListener("click",event=>{if(event.target.closest('a[href*="characte
 addEventListener("pageshow",restoreListView);
 restoreListView();
 
+
+(async()=>{const remote=await sharedReady;if(remote?.characters){master=remote;localStorage.setItem(STORAGE_KEY,JSON.stringify(master));render();}})();
+
+
+addEventListener("shared-master-updated",event=>{master=event.detail;render()});

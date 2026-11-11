@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
-    <title>個人用・キャラ図鑑登録</title>
+    <title>共有・キャラ図鑑登録</title>
     <link rel="stylesheet" href="character-register.css?v=20261110-picker-actions" />
   </head>
   <body class="register-page">
     <header>
       <div>
-        <p class="private-label">このパソコンだけで使う個人用画面</p>
+        <p class="private-label">みんなで共有するキャラ図鑑</p>
         <h1>キャラ図鑑登録</h1>
-        <p>「このキャラを保存」で同じブラウザーの別タブとデータを共有します。</p>
+        <p>登録・編集したデータは、このサイトの利用者全員に共有されます。</p>
       </div>
+      <span class="sync-status" data-sync-status>共有データを読み込み中…</span>
       <div class="header-actions">
         <a class="header-link" href="character-list.html">登録済みキャラを管理</a>
         <label class="file-button">JSONを読み込む<input id="importFile" type="file" accept="application/json,.json" /></label>
@@ -146,9 +147,11 @@
     <div id="notice" role="status" aria-live="polite"></div>
     <div id="picker" class="picker" hidden><div class="picker-card"><div class="picker-head"><strong id="pickerTitle">候補を選択</strong><button id="pickerClose" type="button">×</button></div><input id="pickerSearch" type="search" placeholder="途中の文字でも検索できます" /><div id="pickerOptions" class="picker-options"></div><div id="pickerFriendshipActions" class="picker-friendship-actions" hidden><button id="pickerAddFriendship" class="picker-add-friendship" type="button">＋ 友情を追加</button><button id="pickerRemoveFriendship" class="picker-remove-friendship" type="button">選んだ友情候補を削除</button></div><button id="pickerDone" class="primary" type="button">決定</button></div></div>
     <div id="abilityPicker" class="picker" hidden><div class="picker-card ability-picker-card"><div class="picker-head"><strong>アビリティを選択</strong><button id="abilityPickerClose" type="button">×</button></div><input id="abilitySearch" type="search" placeholder="アビリティ名を途中の文字から検索" /><div class="ability-navigation"><button id="abilityBack" type="button" hidden>← 戻る</button><p id="abilityBreadcrumb">分類を選択</p></div><p class="ability-guide">最終候補で種類を選択：<b>素</b>／<b>ゲージ</b>／<b>コネクト</b></p><div id="abilityOptions" class="picker-options ability-options"></div><button id="abilityPickerDone" class="primary" type="button">決定</button></div></div>
+    <script src="shared-storage-config.js?v=20261111-supabase"></script>
+    <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261110-image-preview"></script>
     <script src="character-catalogs.js?v=20261110-in-position-killer-v2"></script>
-    <script src="character-register.js?v=20261111-required-friendship"></script>
+    <script src="character-register.js?v=20261111-supabase"></script>
   </body>
 </html>
 

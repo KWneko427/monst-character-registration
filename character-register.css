@@ -240,3 +240,5 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .friendship-box.friendship-disabled { opacity:.42; background:#edf0f4; filter:grayscale(.75); }
 .friendship-box.friendship-disabled > strong { color:#737b89; }
 .friendship-box.friendship-disabled input, .friendship-box.friendship-disabled select, .friendship-box.friendship-disabled button { cursor:not-allowed; }
+
+.sync-status{font-size:.86rem;font-weight:700;overflow-wrap:anywhere}.sync-status[data-state="shared"]{color:#087a43}.sync-status[data-state="error"]{color:#b12525}

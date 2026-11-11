@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
-    <title>個人用・登録済みキャラ管理</title>
+    <title>共有・登録済みキャラ管理</title>
     <link rel="stylesheet" href="character-register.css?v=20261028-review-check" />
     <link rel="stylesheet" href="character-list.css?v=20261028-review-check" />
   </head>
   <body class="manager-page">
     <header>
-      <div><p class="private-label">このパソコンだけで使う個人用画面</p><h1>登録済みキャラ管理</h1><p>図鑑データの検索・確認・編集・削除を行います。</p></div>
+      <div><p class="private-label">みんなで共有するキャラ図鑑</p><h1>登録済みキャラ管理</h1><p>図鑑データの検索・確認・編集・削除を行います。</p></div>
+      <span class="sync-status" data-sync-status>共有データを読み込み中…</span>
       <div class="header-actions"><a class="header-link" href="character-register.html">＋ 新しいキャラを登録</a><button id="exportButton" type="button">JSONを書き出す</button></div>
     </header>
     <main>
@@ -37,8 +38,12 @@
     <div id="abilityFilterPicker" class="ability-filter-picker" hidden><div class="ability-filter-card"><div class="ability-filter-head"><strong>アビリティで絞り込み</strong><button id="abilityFilterClose" type="button">×</button></div><input id="abilityFilterSearch" type="search" placeholder="アビリティ名を検索" /><div id="abilityFilterOptions" class="ability-filter-options"></div><div class="ability-filter-actions"><button id="abilityFilterClear" type="button">選択を解除</button><button id="abilityFilterDone" class="primary" type="button">決定</button></div></div></div>
     <div id="raceFilterPicker" class="ability-filter-picker race-filter-picker" hidden><div class="ability-filter-card race-filter-card"><div class="ability-filter-head"><strong>種族で絞り込み</strong><button id="raceFilterClose" type="button">×</button></div><input id="raceFilterSearch" type="search" placeholder="種族名を検索" /><div id="raceFilterOptions" class="race-filter-options"></div></div></div>
     <div id="notice" role="status" aria-live="polite"></div>
+    <script src="shared-storage-config.js?v=20261111-supabase"></script>
+    <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261013-save-dialog"></script>
     <script src="character-catalogs.js"></script>
-    <script src="character-list.js?v=20261028-review-check"></script>
+    <script src="character-list.js?v=20261111-supabase"></script>
   </body>
 </html>
+
+
