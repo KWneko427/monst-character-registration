@@ -143,9 +143,12 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .ability-summary-kinds button, .ability-summary-actions button { min-height: 30px; padding: 5px 9px; background: #fff; color: #59627a; font-size: 11px; }
 .ability-summary-kinds button.selected { background: #5640b5; color: #fff; }
 .ability-summary-actions .remove { color: #c43b2c; }
-.ability-drag-handle { width: 30px; min-height: 30px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #7770a6; font-size: 19px; line-height: 1; cursor: grab; touch-action: none; }
+.ability-drag-handle { width: 30px; min-height: 30px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #7770a6; font-size: 19px; line-height: 1; cursor: grab; touch-action: none; visibility: hidden; pointer-events: none; }
+.ability-summary.reorder-mode .ability-drag-handle { visibility: visible; pointer-events: auto; }
 .ability-drag-handle:active, .ability-summary-row.dragging .ability-drag-handle { cursor: grabbing; background: #e4e0fb; }
 .ability-summary-row.dragging { opacity: .72; outline: 2px dashed #7562c7; }
+body.ability-reordering header, body.ability-reordering .editor-panel > .section-title, body.ability-reordering form > fieldset:not(:has(#abilitySummary)) { opacity: .48; pointer-events: none; }
+body.ability-reordering header, body.ability-reordering .editor-panel > .section-title, body.ability-reordering form > fieldset { transition: opacity .16s ease; }
 .connect-condition { margin-top: 13px; }
 .ability-picker-card { width: min(850px, 100%); height: min(800px, calc(100vh - 48px)); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto; overflow: hidden; }
 .ability-navigation { display: flex; align-items: center; gap: 10px; min-height: 34px; }
