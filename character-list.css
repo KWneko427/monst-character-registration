@@ -1,5 +1,5 @@
 .manager-page main { display: block; max-width: 1450px; }
-.manager-panel { padding: 20px; border: 1px solid #dce1ee; border-radius: 16px; background: #fff; box-shadow: 0 8px 26px rgba(42,35,88,.08); }
+.manager-panel { padding: 20px; padding-bottom: 42px; border: 1px solid #dce1ee; border-radius: 16px; background: #fff; box-shadow: 0 8px 26px rgba(42,35,88,.08); }
 .manager-tools { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 16px; }
 .manager-tools h2 { display: inline; margin-right: 10px; }
 .manager-tools #count { color: #6553b7; font-weight: 800; }
@@ -44,7 +44,7 @@
 .race-filter-divider { grid-column: 1 / -1; height: 1px; margin: 3px 0; background: #cfd5e4; }
 body.filter-modal-open { overflow: hidden; }
 .filter-panel button { align-self: end; min-height: 38px; padding: 7px 10px; background: #eceff6; color: #48526a; }
-.table-wrap { overflow: auto; border: 1px solid #dfe3ee; border-radius: 11px; }
+.table-wrap { overflow-x: hidden; overflow-y: visible; border: 1px solid #dfe3ee; border-radius: 11px; }
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
 th, td { padding: 11px 12px; border-bottom: 1px solid #e8eaf1; text-align: left; white-space: nowrap; }
 th { position: sticky; top: 0; z-index: 1; background: #f2f0fb; color: #493990; font-size: 12px; }
@@ -73,7 +73,7 @@ tbody tr:hover { background: #faf9ff; }
 .review-mark.unchecked { background: #fff3e8; color: #a85518; }
 
 /* 長い一覧でも画面を下端まで送らずに横へ移動できる操作。 */
-.table-horizontal-controls { position: fixed; z-index: 50; bottom: 18px; left: var(--table-scroll-left, 0px); width: var(--table-scroll-width, 100vw); height: 20px; padding: 0; border: 1px solid #d1d1d1; border-radius: 5px; background: #f1f1f1; box-shadow: 0 2px 7px rgba(32,36,54,.16); cursor: default; touch-action: none; }
+.table-horizontal-controls { position: fixed; z-index: 50; top: var(--table-scroll-top, calc(100vh - 38px)); left: var(--table-scroll-left, 0px); width: var(--table-scroll-width, 100vw); height: 20px; padding: 0; border: 1px solid #d1d1d1; border-radius: 5px; background: #f1f1f1; box-shadow: 0 2px 7px rgba(32,36,54,.16); cursor: default; touch-action: none; }
 .table-horizontal-controls:focus-visible { outline: 3px solid #7869c7; outline-offset: 2px; }
 .table-scroll-thumb { position: absolute; top: 1px; left: var(--table-scroll-thumb-left, 0px); width: var(--table-scroll-thumb, 72px); height: 16px; border-radius: 4px; background: #a8a8a8; transition: background .12s ease; }
 .table-horizontal-controls.dragging .table-scroll-thumb, .table-horizontal-controls:hover .table-scroll-thumb { background: #858585; }
