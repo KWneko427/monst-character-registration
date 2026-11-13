@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <title>共有・登録済みキャラ管理</title>
     <link rel="stylesheet" href="character-register.css?v=20261028-review-check" />
-    <link rel="stylesheet" href="character-list.css?v=20261028-review-check" />
+    <link rel="stylesheet" href="character-list.css?v=20261114-horizontal-scroll-drag" />
   </head>
   <body class="manager-page">
     <header>
@@ -32,6 +32,7 @@
           <button id="resetFilters" type="button">条件をリセット</button>
         </div>
         <div class="table-wrap"><table><thead><tr><th>キャラ名</th><th>形態</th><th>種族</th><th>撃種</th><th>戦型</th><th>確認</th><th>操作</th></tr></thead><tbody id="characterRows"></tbody></table></div>
+        <div id="tableScrollBar" class="table-horizontal-controls" role="slider" tabindex="0" aria-label="一覧を左右に移動" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"><span class="table-scroll-thumb"></span></div>
         <p id="empty" class="empty-message" hidden>該当するキャラはいません。</p>
       </section>
     </main>
@@ -42,7 +43,7 @@
     <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261013-save-dialog"></script>
     <script src="character-catalogs.js"></script>
-    <script src="character-list.js?v=20261111-supabase"></script>
+    <script src="character-list.js?v=20261114-horizontal-scroll-drag"></script>
   </body>
 </html>
 
