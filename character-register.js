@@ -198,9 +198,6 @@ async function applyBackgroundRepairQueue(){
   if(!queue?.revision||queue.revision===appliedRepairRevision)return;
   await navigator.locks.request(STORAGE_KEY,()=>{
    master=loadMaster();master.friendshipCatalog||=[];
-   for(const candidate of queue.friendshipCatalog||[]){
-    if(!master.friendshipCatalog.some(item=>item.name===candidate.name&&Number(item.power)===Number(candidate.power)&&item.attribute===candidate.attribute))master.friendshipCatalog.push(candidate);
-   }
    for(const patch of queue.patches||[]){
     const index=master.characters.findIndex(item=>item.encyclopediaNumber===Number(patch.encyclopediaNumber));
     if(index>=0)master.characters[index]=mergeRepairValue(master.characters[index],patch.changes||{});
