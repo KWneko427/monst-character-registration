@@ -250,3 +250,8 @@ body.ability-reordering header, body.ability-reordering .editor-panel > .section
 .friendship-box.friendship-disabled input, .friendship-box.friendship-disabled select, .friendship-box.friendship-disabled button { cursor:not-allowed; }
 
 .sync-status{font-size:.86rem;font-weight:700;overflow-wrap:anywhere}.sync-status[data-state="shared"]{color:#087a43}.sync-status[data-state="error"]{color:#b12525}
+
+/* Windows の日本語 IME を使う入力欄と、英数字で入力する入力欄を分ける。 */
+.ime-full { ime-mode:active; }
+.ime-half, .numeric-only { ime-mode:disabled; }
+#picker[data-field$="FriendshipName"] #pickerSearch { ime-mode:active; }

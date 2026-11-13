@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <title>共有・キャラ図鑑登録</title>
-    <link rel="stylesheet" href="character-register.css?v=20261113-gauge-stats-layout" />
+    <link rel="stylesheet" href="character-register.css?v=20261114-input-image-policy" />
   </head>
   <body class="register-page">
     <header>
@@ -32,19 +32,19 @@
         <form id="characterForm">
           <fieldset>
             <legend>名前と基本情報</legend>
-            <div class="character-image-editor"><img id="characterImagePreview" class="character-icon" alt="キャラアイコン" width="96" height="96" hidden><div style="flex:1"><label>キャラ画像URL<input name="imageUrl" type="url" placeholder="URLを使う場合のみ入力" /></label><input name="imageData" type="hidden"><input name="imageFile" type="hidden"><input name="imageRemoved" type="hidden"><label>ファイルから画像を選択<input id="characterImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label><button id="pasteCharacterImage" type="button">コピーした画像を貼り付け</button><button id="clearCharacterImage" type="button">選択画像を解除</button><button id="removeCharacterImage" type="button">画像をなくす</button><p id="characterImageStatus" role="status">画像をコピーして、この画面で Ctrl+V でも貼り付けできます。選択後は「このキャラを保存」を押してください。</p></div></div>
+            <div class="character-image-editor"><img id="characterImagePreview" class="character-icon" alt="キャラアイコン" width="96" height="96" hidden><div style="flex:1"><input name="imageUrl" type="hidden"><input name="imageData" type="hidden"><input name="imageFile" type="hidden"><input name="imageRemoved" type="hidden"><label>キャラ画像ファイル<input id="characterImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label><button id="clearCharacterImage" type="button">選択画像を解除</button><button id="removeCharacterImage" type="button">画像をなくす</button><p id="characterImageStatus" role="status">画像はファイルからのみ登録できます。選択後は「このキャラを保存」を押してください。</p></div></div>
             <div class="grid two basic-info-grid">
               <div class="basic-row basic-row-names">
-              <label>正式キャラ名 *<input name="officialName" required /></label>
-              <label>よく使うキャラ名<input name="commonName" placeholder="正式名の途中一致でも検索できます" /></label>
+              <label>正式キャラ名 *<input name="officialName" class="ime-full" required /></label>
+              <label>よく使うキャラ名<input name="commonName" class="ime-full" placeholder="正式名の途中一致でも検索できます" /></label>
               </div>
               <div class="basic-row basic-row-readings">
-              <label>正式キャラ名の読み仮名<input name="officialNameReading" /></label>
-              <label>よく使う名前の読み仮名<input name="commonNameReading" /></label>
+              <label>正式キャラ名の読み仮名<input name="officialNameReading" class="ime-full" /></label>
+              <label>よく使う名前の読み仮名<input name="commonNameReading" class="ime-full" /></label>
               </div>
               <div class="basic-row basic-row-numbers">
-              <label class="basic-number">図鑑番号 *<input name="encyclopediaNumber" type="number" min="1" required /></label>
-              <label class="basic-related">関連する図鑑番号<input name="evolutionGroupNumbers" placeholder="例：100、101、102" /></label>
+              <label class="basic-number">図鑑番号 *<input name="encyclopediaNumber" class="numeric-only" type="number" inputmode="numeric" min="1" required /></label>
+              <label class="basic-related">関連する図鑑番号<input name="evolutionGroupNumbers" class="ime-half" inputmode="text" placeholder="例：100,101,102" /></label>
               </div>
               <div class="basic-row basic-row-acquisition">
               <label>入手方法<select name="acquisition"><option value="">未選択</option><option>限定</option><option>恒常</option><option>α</option><option>コラボ</option><option>コラボスターターパック</option><option>☆5</option><option>その他</option><option>コラボその他</option></select></label>
@@ -74,9 +74,9 @@
             <legend>ステータス（レベル最大・タス込み）</legend>
             <div class="stats-grid">
               <strong class="stats-corner"></strong><strong class="stats-without-head">ゲージなし</strong><strong class="stats-with-head" data-gauge-only>ゲージあり</strong>
-              <span class="stats-hp-label">HP</span><input class="stats-hp-without" name="hpWithoutGauge" type="number" min="0" /><input class="stats-hp-with" name="hpWithGauge" type="number" min="0" hidden />
-              <span class="stats-attack-label">攻撃力</span><input class="stats-attack-without" name="attackWithoutGauge" type="number" min="0" /><input class="stats-attack-with" name="attackWithGauge" data-gauge-only type="number" min="0" />
-              <span class="stats-speed-label">スピード</span><input class="stats-speed-without" name="speedWithoutGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" /><input class="stats-speed-with" name="speedWithGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" hidden />
+              <span class="stats-hp-label">HP</span><input class="stats-hp-without numeric-only" name="hpWithoutGauge" type="number" inputmode="numeric" min="0" /><input class="stats-hp-with numeric-only" name="hpWithGauge" type="number" inputmode="numeric" min="0" hidden />
+              <span class="stats-attack-label">攻撃力</span><input class="stats-attack-without numeric-only" name="attackWithoutGauge" type="number" inputmode="numeric" min="0" /><input class="stats-attack-with numeric-only" name="attackWithGauge" data-gauge-only type="number" inputmode="numeric" min="0" />
+              <span class="stats-speed-label">スピード</span><input class="stats-speed-without numeric-only" name="speedWithoutGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" /><input class="stats-speed-with numeric-only" name="speedWithGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" hidden />
             </div>
           </fieldset>
 
@@ -104,9 +104,9 @@
           <fieldset>
             <legend>ストライクショット（SS）</legend>
             <div class="grid two">
-              <label>SS名<input name="strikeShotName" /></label>
-              <label>ターン数<input name="strikeShotTurns" placeholder="例：12+12" /></label>
-              <label class="wide">SS説明・効果<textarea name="strikeShotDescription"></textarea></label>
+              <label>SS名<input name="strikeShotName" class="ime-full" /></label>
+              <label>ターン数<input name="strikeShotTurns" class="ime-half" inputmode="text" placeholder="例：12+12" /></label>
+              <label class="wide">SS説明・効果<textarea name="strikeShotDescription" class="ime-full"></textarea></label>
             </div>
           </fieldset>
 
@@ -116,18 +116,18 @@
             <details class="catalog-editor">
               <summary>新しい友情コンボを候補へ登録</summary>
               <div class="grid two">
-                <label>友情名<input id="catalogFriendshipName" /></label>
-                <label>威力<input id="catalogFriendshipPower" type="number" min="0" /></label>
+                <label>友情名<input id="catalogFriendshipName" class="ime-full" /></label>
+                <label>威力<input id="catalogFriendshipPower" class="numeric-only" type="number" inputmode="numeric" min="0" /></label>
                 <label>属性区分<select id="catalogFriendshipAttributeMode"><option value="five">5属性</option><option value="all">全属性</option><option value="none">無属性</option></select></label>
-                <label>説明<input id="catalogFriendshipDescription" /></label>
+                <label>説明<input id="catalogFriendshipDescription" class="ime-full" /></label>
               </div>
               <label>登録済みの友情を編集<select id="catalogFriendshipEditTarget"><option value="">新しい友情を登録</option></select></label>
               <p class="hint">編集する友情を選ぶと、名称・属性区分・説明を変更できます。威力は元のまま保持します。</p>
               <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="updateFriendshipCatalog" class="subtle" type="button" disabled>選択した友情を更新</button><button id="removeFriendshipCatalog" class="danger" type="button">入力した候補を削除</button></div>
             </details>
             <div class="grid two">
-              <div class="friendship-box"><strong>友情コンボ</strong><label>名前<select name="mainFriendshipName" data-friendship="main"><option value="">なし</option></select></label><label>威力<select name="mainFriendshipPower" data-friendship-power="main"></select></label><div class="new-friendship-power" data-new-friendship-power="main" hidden><input type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="main">追加</button><button type="button" data-cancel-friendship-power="main">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="main">選んだ威力を削除</button><label>属性<select name="mainFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="mainFriendshipDescription" readonly /></label></div>
-              <div class="friendship-box"><strong>副友情コンボ</strong><label>名前<select name="subFriendshipName" data-friendship="sub"><option value="">なし</option></select></label><label>威力<select name="subFriendshipPower" data-friendship-power="sub"></select></label><div class="new-friendship-power" data-new-friendship-power="sub" hidden><input type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="sub">追加</button><button type="button" data-cancel-friendship-power="sub">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="sub">選んだ威力を削除</button><label>属性<select name="subFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="subFriendshipDescription" readonly /></label></div>
+              <div class="friendship-box"><strong>友情コンボ</strong><label>名前<select name="mainFriendshipName" data-friendship="main"><option value="">なし</option></select></label><label>威力<select name="mainFriendshipPower" data-friendship-power="main"></select></label><div class="new-friendship-power" data-new-friendship-power="main" hidden><input class="numeric-only" type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="main">追加</button><button type="button" data-cancel-friendship-power="main">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="main">選んだ威力を削除</button><label>属性<select name="mainFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="mainFriendshipDescription" class="ime-full" readonly /></label></div>
+              <div class="friendship-box"><strong>副友情コンボ</strong><label>名前<select name="subFriendshipName" data-friendship="sub"><option value="">なし</option></select></label><label>威力<select name="subFriendshipPower" data-friendship-power="sub"></select></label><div class="new-friendship-power" data-new-friendship-power="sub" hidden><input class="numeric-only" type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="sub">追加</button><button type="button" data-cancel-friendship-power="sub">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="sub">選んだ威力を削除</button><label>属性<select name="subFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="subFriendshipDescription" class="ime-full" readonly /></label></div>
             </div>
           </fieldset>
 
@@ -155,12 +155,12 @@
     </main>
     <div id="notice" role="status" aria-live="polite"></div>
     <div id="picker" class="picker" hidden><div class="picker-card"><div class="picker-head"><strong id="pickerTitle">候補を選択</strong><button id="pickerClose" type="button">×</button></div><input id="pickerSearch" type="search" placeholder="途中の文字でも検索できます" /><div id="pickerOptions" class="picker-options"></div><div id="pickerFriendshipActions" class="picker-friendship-actions" hidden><button id="pickerAddFriendship" class="picker-add-friendship" type="button">＋ 友情を追加</button><button id="pickerRemoveFriendship" class="picker-remove-friendship" type="button">選んだ友情候補を削除</button></div><button id="pickerDone" class="primary" type="button">決定</button></div></div>
-    <div id="abilityPicker" class="picker" hidden><div class="picker-card ability-picker-card"><div class="picker-head"><strong>アビリティを選択</strong><button id="abilityPickerClose" type="button">×</button></div><input id="abilitySearch" type="search" placeholder="アビリティ名を途中の文字から検索" /><div class="ability-navigation"><button id="abilityBack" type="button" hidden>← 戻る</button><p id="abilityBreadcrumb">分類を選択</p></div><p class="ability-guide">最終候補で種類を選択：<b>素</b>／<b>ゲージ</b>／<b>コネクト</b></p><div id="abilityOptions" class="picker-options ability-options"></div><button id="abilityPickerDone" class="primary" type="button">決定</button></div></div>
+    <div id="abilityPicker" class="picker" hidden><div class="picker-card ability-picker-card"><div class="picker-head"><strong>アビリティを選択</strong><button id="abilityPickerClose" type="button">×</button></div><input id="abilitySearch" class="ime-full" type="search" placeholder="アビリティ名を途中の文字から検索" /><div class="ability-navigation"><button id="abilityBack" type="button" hidden>← 戻る</button><p id="abilityBreadcrumb">分類を選択</p></div><p class="ability-guide">最終候補で種類を選択：<b>素</b>／<b>ゲージ</b>／<b>コネクト</b></p><div id="abilityOptions" class="picker-options ability-options"></div><button id="abilityPickerDone" class="primary" type="button">決定</button></div></div>
     <script src="shared-storage-config.js?v=20261111-supabase"></script>
     <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261110-image-preview"></script>
     <script src="character-catalogs.js?v=20261110-in-position-killer-v2"></script>
-  <script src="character-register.js?v=20261114-manual-friendship-only"></script>
+  <script src="character-register.js?v=20261114-input-image-policy"></script>
   </body>
 </html>
 
