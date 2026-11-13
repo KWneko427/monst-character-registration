@@ -142,6 +142,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .ability-summary-kinds, .ability-summary-actions { display: flex; gap: 4px; }
 .ability-summary-kinds button, .ability-summary-actions button { min-height: 30px; padding: 5px 9px; background: #fff; color: #59627a; font-size: 11px; }
 .ability-summary-kinds button.selected { background: #5640b5; color: #fff; }
+.ability-summary-kinds button:disabled { opacity: .42; background: #edf0f5; color: #7c8495; cursor: not-allowed; }
 .ability-summary-actions .remove { color: #c43b2c; }
 .ability-drag-handle { width: 30px; min-height: 30px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #7770a6; font-size: 19px; line-height: 1; cursor: grab; touch-action: none; visibility: hidden; pointer-events: none; }
 .ability-summary.reorder-mode .ability-drag-handle { visibility: visible; pointer-events: auto; }
