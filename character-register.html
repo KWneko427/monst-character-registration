@@ -119,7 +119,9 @@
                 <label>属性区分<select id="catalogFriendshipAttributeMode"><option value="five">5属性</option><option value="all">全属性</option><option value="none">無属性</option></select></label>
                 <label>説明<input id="catalogFriendshipDescription" /></label>
               </div>
-              <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="removeFriendshipCatalog" class="danger" type="button">入力した候補を削除</button></div>
+              <label>登録済みの友情を編集<select id="catalogFriendshipEditTarget"><option value="">新しい友情を登録</option></select></label>
+              <p class="hint">編集する友情を選ぶと、名称・属性区分・説明を変更できます。威力は元のまま保持します。</p>
+              <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="updateFriendshipCatalog" class="subtle" type="button" disabled>選択した友情を更新</button><button id="removeFriendshipCatalog" class="danger" type="button">入力した候補を削除</button></div>
             </details>
             <div class="grid two">
               <div class="friendship-box"><strong>友情コンボ</strong><label>名前<select name="mainFriendshipName" data-friendship="main"><option value="">なし</option></select></label><label>威力<select name="mainFriendshipPower" data-friendship-power="main"></select></label><div class="new-friendship-power" data-new-friendship-power="main" hidden><input type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="main">追加</button><button type="button" data-cancel-friendship-power="main">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="main">選んだ威力を削除</button><label>属性<select name="mainFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="mainFriendshipDescription" readonly /></label></div>
@@ -156,13 +158,7 @@
     <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261110-image-preview"></script>
     <script src="character-catalogs.js?v=20261110-in-position-killer-v2"></script>
-    <script src="character-register.js?v=20261113-friendship-labels"></script>
+    <script src="character-register.js?v=20261113-friendship-edit"></script>
   </body>
 </html>
-
-
-
-
-
-
 
