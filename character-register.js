@@ -73,7 +73,7 @@ function updateVerificationFields(){const hasMissing=form.elements.hasMissingIte
 function updateRequiredFields(){
  const formName=val("evolutionForm"),hasGauge=form.elements.hasGauge.checked,hasSecond=hasSecondFriendshipForm(),isSix=String(form.elements.rarity.value)==="6",isTrueBeast=formName==="真獣神化";
  ["officialName","commonName","officialNameReading","commonNameReading","encyclopediaNumber","acquisition","rarity","evolutionForm","attribute","race","battleType","hitType","hpWithoutGauge","attackWithoutGauge","speedWithoutGauge","strikeShotName","strikeShotTurns","strikeShotDescription","mainFriendshipName","mainFriendshipPower","mainFriendshipAttribute","mainFriendshipDescription"].forEach(name=>setRequired(name,true));
- const needsEvidence=editingNumber===null;["source","secondSource","sourcesAgree","verifiedAt"].forEach(name=>setRequired(name,needsEvidence));
+ const needsEvidence=autoRegistration&&editingNumber===null;["source","secondSource","sourcesAgree","verifiedAt"].forEach(name=>setRequired(name,needsEvidence));
  setRequired("luckSkill",isSix);setRequired("attackWithGauge",hasGauge);setRequired("hpWithGauge",false);setRequired("speedWithGauge",false);
  setRequired("connectCondition",formName==="獣神化・改");setRequired("shotSkillDescription",isTrueBeast);setRequired("assistSkillDescription",isTrueBeast);
  ["subFriendshipName","subFriendshipPower","subFriendshipAttribute","subFriendshipDescription"].forEach(name=>setRequired(name,hasSecond));
