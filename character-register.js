@@ -3,8 +3,8 @@ const autoRegistration=new URLSearchParams(location.search).get("mode")==="auto"
 if(isolatedDebug)window.SharedMasterStore=undefined;
 // 登録は保存ボタンのクリックだけで行い、入力中の Enter では送信しない。
 let checkedEditFingerprint="";
-function startCheckedEditTracking(){if(editingNumber===null||!form.elements.isChecked.checked||checkedEditFingerprint)return;checkedEditFingerprint=JSON.stringify(readForm())}
-function resetCheckedAfterEdit(event){const control=event.target;if(!(control instanceof HTMLElement)||!control.closest("#characterForm"))return;if(control.name==="isChecked"){checkedEditFingerprint=control.checked?JSON.stringify(readForm()):"";return}if(!checkedEditFingerprint||JSON.stringify(readForm())===checkedEditFingerprint)return;form.elements.isChecked.checked=false;checkedEditFingerprint="";updateRegistrationCheckHint();toast("入力を変更したため、確認済みを外しました。")}
+function startCheckedEditTracking(){if(!autoRegistration||editingNumber===null||!form.elements.isChecked.checked||checkedEditFingerprint)return;checkedEditFingerprint=JSON.stringify(readForm())}
+function resetCheckedAfterEdit(event){const control=event.target;if(!autoRegistration||!(control instanceof HTMLElement)||!control.closest("#characterForm"))return;if(control.name==="isChecked"){checkedEditFingerprint=control.checked?JSON.stringify(readForm()):"";return}if(!checkedEditFingerprint||JSON.stringify(readForm())===checkedEditFingerprint)return;form.elements.isChecked.checked=false;checkedEditFingerprint="";updateRegistrationCheckHint();toast("入力を変更したため、確認済みを外しました。")}
 form.addEventListener("pointerdown",startCheckedEditTracking,true);
 form.addEventListener("focusin",startCheckedEditTracking,true);
 form.addEventListener("input",resetCheckedAfterEdit);
