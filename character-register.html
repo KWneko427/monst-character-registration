@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <title>共有・キャラ図鑑登録</title>
-    <link rel="stylesheet" href="character-register.css?v=20261113-ability-kind-disabled" />
+    <link rel="stylesheet" href="character-register.css?v=20261113-gauge-stats-layout" />
   </head>
   <body class="register-page">
     <header>
@@ -74,9 +74,9 @@
             <legend>ステータス（レベル最大・タス込み）</legend>
             <div class="stats-grid">
               <strong class="stats-corner"></strong><strong class="stats-without-head">ゲージなし</strong><strong class="stats-with-head" data-gauge-only>ゲージあり</strong>
-              <span class="stats-hp-label">HP</span><input class="stats-hp-without" name="hpWithoutGauge" type="number" min="0" /><input class="stats-hp-with" name="hpWithGauge" data-gauge-only type="number" min="0" />
+              <span class="stats-hp-label">HP</span><input class="stats-hp-without" name="hpWithoutGauge" type="number" min="0" /><input class="stats-hp-with" name="hpWithGauge" type="number" min="0" hidden />
               <span class="stats-attack-label">攻撃力</span><input class="stats-attack-without" name="attackWithoutGauge" type="number" min="0" /><input class="stats-attack-with" name="attackWithGauge" data-gauge-only type="number" min="0" />
-              <span class="stats-speed-label">スピード</span><input class="stats-speed-without" name="speedWithoutGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" /><input class="stats-speed-with" name="speedWithGauge" data-gauge-only type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" />
+              <span class="stats-speed-label">スピード</span><input class="stats-speed-without" name="speedWithoutGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" /><input class="stats-speed-with" name="speedWithGauge" type="text" inputmode="decimal" pattern="[0-9]+(?:\.[0-9]{1,2})?" hidden />
             </div>
           </fieldset>
 

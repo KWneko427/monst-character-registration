@@ -51,14 +51,14 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .stats-without-head { grid-column: 2; grid-row: 1; }
 .stats-with-head { grid-column: 3; grid-row: 1; }
 .stats-hp-label { grid-column: 1; grid-row: 2; }
-.stats-hp-without { grid-column: 2; grid-row: 2; }
-.stats-hp-with { grid-column: 3; grid-row: 2; }
+.stats-hp-without { grid-column: 2 / -1; grid-row: 2; }
+.stats-hp-with { display: none; }
 .stats-attack-label { grid-column: 1; grid-row: 3; }
 .stats-attack-without { grid-column: 2; grid-row: 3; }
 .stats-attack-with { grid-column: 3; grid-row: 3; }
 .stats-speed-label { grid-column: 1; grid-row: 4; }
-.stats-speed-without { grid-column: 2; grid-row: 4; }
-.stats-speed-with { grid-column: 3; grid-row: 4; }
+.stats-speed-without { grid-column: 2 / -1; grid-row: 4; }
+.stats-speed-with { display: none; }
 .stats-grid strong { text-align: center; font-size: 13px; }
 .hint { color: #66708a; font-size: 12px; margin-bottom: 12px; }
 .form-actions { display: flex; justify-content: flex-end; gap: 10px; }
