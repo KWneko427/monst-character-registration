@@ -136,13 +136,16 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .picker[data-field="race"] .picker-option input { position: absolute; opacity: 0; pointer-events: none; }
 .race-divider { grid-column: 1 / -1; height: 1px; margin: 8px 0 2px; background: #aeb7c8; }
 .ability-summary { display: grid; gap: 7px; margin-top: 10px; }
-.ability-summary > div { display: grid; grid-template-columns: minmax(160px,1fr) auto auto; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px; background: #f6f4ff; font-size: 13px; }
+.ability-summary > div { display: grid; grid-template-columns: auto minmax(132px,1fr) auto auto; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px; background: #f6f4ff; font-size: 13px; }
 .ability-summary strong { color: #493990; }
 .ability-summary .empty { color: #7b8295; font-size: 12px; }
 .ability-summary-kinds, .ability-summary-actions { display: flex; gap: 4px; }
 .ability-summary-kinds button, .ability-summary-actions button { min-height: 30px; padding: 5px 9px; background: #fff; color: #59627a; font-size: 11px; }
 .ability-summary-kinds button.selected { background: #5640b5; color: #fff; }
 .ability-summary-actions .remove { color: #c43b2c; }
+.ability-drag-handle { width: 30px; min-height: 30px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #7770a6; font-size: 19px; line-height: 1; cursor: grab; touch-action: none; }
+.ability-drag-handle:active, .ability-summary-row.dragging .ability-drag-handle { cursor: grabbing; background: #e4e0fb; }
+.ability-summary-row.dragging { opacity: .72; outline: 2px dashed #7562c7; }
 .connect-condition { margin-top: 13px; }
 .ability-picker-card { width: min(850px, 100%); height: min(800px, calc(100vh - 48px)); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto; overflow: hidden; }
 .ability-navigation { display: flex; align-items: center; gap: 10px; min-height: 34px; }
@@ -169,6 +172,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(86, 64, 181,
 .ability-kinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
 .ability-kinds label { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 34px; padding: 5px; border: 1px solid #dfe3ee; border-radius: 7px; background: #fafbfe; cursor: pointer; font-size: 11px; }
 .ability-kinds label:has(input:checked) { border-color: #6652bf; background: #eeeaff; color: #3f2d91; font-weight: 800; }
+.ability-kinds label.disabled { opacity: .42; cursor: not-allowed; }
 .ability-kinds input { width: 15px; height: 15px; }
 .ability-options { min-height: 0; max-height: none; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; padding-right: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: start; gap: 8px; }
 .ability-group-title { grid-column: 1 / -1; margin: 7px 0 0; padding: 7px 9px; border-left: 4px solid #5640b5; background: #f1eefc; color: #403080; font-size: 13px; }
