@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <title>共有・キャラ図鑑登録</title>
-    <link rel="stylesheet" href="character-register.css?v=20261114-input-image-policy" />
+    <link rel="stylesheet" href="character-register.css?v=20261114-friendship-power-confirm" />
   </head>
   <body class="register-page">
     <header>
@@ -32,7 +32,7 @@
         <form id="characterForm">
           <fieldset>
             <legend>名前と基本情報</legend>
-            <div class="character-image-editor"><img id="characterImagePreview" class="character-icon" alt="キャラアイコン" width="96" height="96" hidden><div style="flex:1"><input name="imageUrl" type="hidden"><input name="imageData" type="hidden"><input name="imageFile" type="hidden"><input name="imageRemoved" type="hidden"><label>キャラ画像ファイル<input id="characterImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label><button id="clearCharacterImage" type="button">選択画像を解除</button><button id="removeCharacterImage" type="button">画像をなくす</button><p id="characterImageStatus" role="status">画像はファイルからのみ登録できます。選択後は「このキャラを保存」を押してください。</p></div></div>
+            <div class="character-image-editor"><img id="characterImagePreview" class="character-icon" alt="キャラアイコン" width="96" height="96" hidden><div style="flex:1"><input name="imageUrl" type="hidden"><input name="imageData" type="hidden"><input name="imageFile" type="hidden"><input name="imageSource" type="hidden"><input name="imageRemoved" type="hidden"><label>キャラ画像ファイル<input id="characterImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label><button id="clearCharacterImage" type="button">選択画像を解除</button><button id="removeCharacterImage" type="button">画像をなくす</button><p id="characterImageStatus" role="status">画像はファイルからのみ登録できます。選択後は「このキャラを保存」を押してください。</p></div></div>
             <div class="grid two basic-info-grid">
               <div class="basic-row basic-row-names">
               <label>正式キャラ名 *<input name="officialName" class="ime-full" required /></label>
@@ -122,8 +122,8 @@
                 <label>説明<input id="catalogFriendshipDescription" class="ime-full" /></label>
               </div>
               <label>登録済みの友情を編集<select id="catalogFriendshipEditTarget"><option value="">新しい友情を登録</option></select></label>
-              <p class="hint">編集する友情を選ぶと、名称・属性区分・説明を変更できます。威力は元のまま保持します。</p>
-              <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="updateFriendshipCatalog" class="subtle" type="button" disabled>選択した友情を更新</button><button id="removeFriendshipCatalog" class="danger" type="button">入力した候補を削除</button></div>
+              <p class="hint">編集する友情を選ぶと、名称・威力・属性区分・説明を変更できます。</p>
+              <div class="catalog-actions"><button id="addFriendshipCatalog" class="subtle" type="button">候補へ追加</button><button id="updateFriendshipCatalog" class="subtle" type="button" disabled>選択した友情を更新</button><button id="removeFriendshipCatalog" class="danger" type="button">選択した友情を削除</button></div>
             </details>
             <div class="grid two">
               <div class="friendship-box"><strong>友情コンボ</strong><label>名前<select name="mainFriendshipName" data-friendship="main"><option value="">なし</option></select></label><label>威力<select name="mainFriendshipPower" data-friendship-power="main"></select></label><div class="new-friendship-power" data-new-friendship-power="main" hidden><input class="numeric-only" type="number" min="0" inputmode="numeric" placeholder="新しい威力" /><button type="button" data-add-friendship-power="main">追加</button><button type="button" data-cancel-friendship-power="main">取消</button></div><button class="remove-friendship-power" type="button" data-remove-friendship-power="main">選んだ威力を削除</button><label>属性<select name="mainFriendshipAttribute"><option value="">未入力</option><option>火</option><option>水</option><option>木</option><option>光</option><option>闇</option><option>全属性</option><option>無属性</option></select></label><label>説明<input name="mainFriendshipDescription" class="ime-full" readonly /></label></div>
@@ -154,13 +154,14 @@
 
     </main>
     <div id="notice" role="status" aria-live="polite"></div>
+    <div id="friendshipPowerConfirm" class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="friendshipPowerConfirmText" hidden><div class="confirm-card"><p id="friendshipPowerConfirmText"></p><div class="confirm-actions"><button id="friendshipPowerConfirmCancel" type="button">キャンセル</button><button id="friendshipPowerConfirmOk" class="danger" type="button">削除</button></div></div></div>
     <div id="picker" class="picker" hidden><div class="picker-card"><div class="picker-head"><strong id="pickerTitle">候補を選択</strong><button id="pickerClose" type="button">×</button></div><input id="pickerSearch" type="search" placeholder="途中の文字でも検索できます" /><div id="pickerOptions" class="picker-options"></div><div id="pickerFriendshipActions" class="picker-friendship-actions" hidden><button id="pickerAddFriendship" class="picker-add-friendship" type="button">＋ 友情を追加</button><button id="pickerRemoveFriendship" class="picker-remove-friendship" type="button">選んだ友情候補を削除</button></div><button id="pickerDone" class="primary" type="button">決定</button></div></div>
     <div id="abilityPicker" class="picker" hidden><div class="picker-card ability-picker-card"><div class="picker-head"><strong>アビリティを選択</strong><button id="abilityPickerClose" type="button">×</button></div><input id="abilitySearch" class="ime-full" type="search" placeholder="アビリティ名を途中の文字から検索" /><div class="ability-navigation"><button id="abilityBack" type="button" hidden>← 戻る</button><p id="abilityBreadcrumb">分類を選択</p></div><p class="ability-guide">最終候補で種類を選択：<b>素</b>／<b>ゲージ</b>／<b>コネクト</b></p><div id="abilityOptions" class="picker-options ability-options"></div><button id="abilityPickerDone" class="primary" type="button">決定</button></div></div>
     <script src="shared-storage-config.js?v=20261111-supabase"></script>
     <script src="shared-storage.js?v=20261111-supabase"></script>
-    <script src="character-images.js?v=20261110-image-preview"></script>
+    <script src="character-images.js?v=20261114-image-check-migration"></script>
     <script src="character-catalogs.js?v=20261110-in-position-killer-v2"></script>
-  <script src="character-register.js?v=20261114-input-image-policy"></script>
+  <script src="character-register.js?v=20261114-friendship-save-validation"></script>
   </body>
 </html>
 

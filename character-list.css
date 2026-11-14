@@ -16,6 +16,34 @@
 .filter-select-menu[hidden] { display: none; }
 .filter-select-option { display: block; width: 100%; padding: 8px 10px; border-radius: 6px; background: transparent; color: #36405a; text-align: left; font-weight: 500; }
 .filter-select-option:hover { background: #f2f0fb; }
+.filter-select-option.multi { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.filter-select-option.multi input { width: 16px; height: 16px; margin: 0; accent-color: #5640b5; }
+.attribute-filter-menu .filter-select-option[data-value="火"] { color: #c9362c; }
+.attribute-filter-menu .filter-select-option[data-value="水"] { color: #1769b4; }
+.attribute-filter-menu .filter-select-option[data-value="木"] { color: #227a4b; }
+.attribute-filter-menu .filter-select-option[data-value="光"] { color: #986d00; }
+.attribute-filter-menu .filter-select-option[data-value="闇"] { color: #654191; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="火"] { background: #fde9e7; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="水"] { background: #e5f1fc; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="木"] { background: #e3f5e9; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="光"] { background: #fff5d9; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="闇"] { background: #eee8f7; }
+
+
+.filter-select-option.multi { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.filter-select-option.multi input { width: 16px; height: 16px; margin: 0; accent-color: #5640b5; }
+.attribute-filter-menu .filter-select-option[data-value="火"] { color: #c9362c; }
+.attribute-filter-menu .filter-select-option[data-value="水"] { color: #1769b4; }
+.attribute-filter-menu .filter-select-option[data-value="木"] { color: #227a4b; }
+.attribute-filter-menu .filter-select-option[data-value="光"] { color: #986d00; }
+.attribute-filter-menu .filter-select-option[data-value="闇"] { color: #654191; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="火"] { background: #fde9e7; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="水"] { background: #e5f1fc; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="木"] { background: #e3f5e9; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="光"] { background: #fff5d9; }
+.attribute-filter-menu .filter-select-option.multi.selected[data-value="闇"] { background: #eee8f7; }
+
+
 .filter-select-option.selected { background: #5640b5; color: #fff; font-weight: 800; }
 .filter-select-button[data-field="filterAttribute"][data-value="火"] { color: #d84135; }
 .filter-select-button[data-field="filterAttribute"][data-value="水"] { color: #2b7cca; }
@@ -44,6 +72,19 @@
 .race-filter-divider { grid-column: 1 / -1; height: 1px; margin: 3px 0; background: #cfd5e4; }
 body.filter-modal-open { overflow: hidden; }
 .filter-panel button { align-self: end; min-height: 38px; padding: 7px 10px; background: #eceff6; color: #48526a; }
+.evolution-filter-menu { display: flex; flex-direction: column; overflow: hidden; }
+.evolution-filter-options { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.evolution-quick-filters { display: flex; flex: none; gap: 6px; margin-top: 6px; padding: 7px 4px 2px; border-top: 1px solid #e3e6ef; background: #fff; }
+.evolution-quick-filters button { flex: 1; min-width: 0; min-height: 32px; padding: 5px 6px; border-radius: 6px; background: #eceff6; color: #48526a; font-size: 12px; }
+.evolution-quick-filters button[aria-pressed="true"] { background: #5640b5; color: #fff; }
+.battle-filter-menu:not(.separate) .battle-type-super { display: none; }
+.battle-filter-menu:not(.separate) .battle-filter-options { display: block; }
+.battle-filter-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 10px; }
+.battle-filter-options .filter-select-option { box-sizing: border-box; padding-left: 10px; }
+.battle-type-separate { display: block; width: 100%; margin-top: 6px; padding: 7px 9px; border-top: 1px solid #e3e6ef; background: #eceff6; color: #48526a; font-size: 12px; text-align: left; }
+.battle-type-separate[aria-pressed="true"] { background: #5640b5; color: #fff; font-weight: 800; }
+
+
 .table-wrap { overflow-x: hidden; overflow-y: visible; border: 1px solid #dfe3ee; border-radius: 11px; }
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
 th, td { padding: 11px 12px; border-bottom: 1px solid #e8eaf1; text-align: left; white-space: nowrap; }
