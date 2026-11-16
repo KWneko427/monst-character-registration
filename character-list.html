@@ -27,7 +27,7 @@
           <label>ゲージ<select id="filterGauge"><option value="">すべて</option><option value="yes">あり</option><option value="no">なし</option></select></label>
           <label>確認チェック<select id="filterChecked"><option value="">すべて</option><option value="unchecked">未チェックのみ</option><option value="checked">チェック済みのみ</option></select></label>
           <label class="ability-filter-label">アビリティ<button id="abilityFilterButton" class="filter-select-button ability-filter-button" type="button" aria-expanded="false">すべて</button></label>
-          <label>アビリティ条件<select id="filterAbilityMode"><option value="or">OR（どれかを含む）</option><option value="and">AND（すべて含む）</option></select></label>
+          <label class="ability-filter-label">アンチアビリティ<button id="antiAbilityFilterButton" class="filter-select-button ability-filter-button" type="button" aria-expanded="false">すべて</button></label>
           <label>並べ替え<select id="sortOrder"><option value="numberDesc">図鑑番号が大きい順</option><option value="numberAsc">図鑑番号が小さい順</option><option value="nameAsc">名前順</option><option value="rarityDesc">レアリティが高い順</option></select></label>
           <button id="resetFilters" type="button">条件をリセット</button>
         </div>
@@ -36,14 +36,15 @@
         <p id="empty" class="empty-message" hidden>該当するキャラはいません。</p>
       </section>
     </main>
-    <div id="abilityFilterPicker" class="ability-filter-picker" hidden><div class="ability-filter-card"><div class="ability-filter-head"><strong>アビリティで絞り込み</strong><button id="abilityFilterClose" type="button">×</button></div><input id="abilityFilterSearch" type="search" placeholder="アビリティ名を検索" /><div id="abilityFilterOptions" class="ability-filter-options"></div><div class="ability-filter-actions"><button id="abilityFilterClear" type="button">選択を解除</button><button id="abilityFilterDone" class="primary" type="button">決定</button></div></div></div>
+    <div id="abilityFilterPicker" class="ability-filter-picker" hidden><div class="ability-filter-card"><div class="ability-filter-head"><strong>アビリティで絞り込み</strong><button id="abilityFilterClose" type="button">×</button></div><input id="abilityFilterSearch" type="search" placeholder="アビリティ名を検索" /><div id="abilityFilterOptions" class="ability-filter-options"></div><div class="ability-filter-actions"><label class="ability-filter-mode">条件<select id="filterAbilityMode"><option value="or">OR（どれかを含む）</option><option value="and">AND（すべて含む）</option></select></label><button id="abilityFilterClear" type="button">選択を解除</button><button id="abilityFilterDone" class="primary" type="button">決定</button></div></div></div>
+    <div id="antiAbilityFilterPicker" class="ability-filter-picker" hidden><div class="ability-filter-card"><div class="ability-filter-head"><strong>アンチアビリティで絞り込み</strong><button id="antiAbilityFilterClose" type="button">×</button></div><input id="antiAbilityFilterSearch" type="search" placeholder="アンチアビリティ名を検索" /><div id="antiAbilityFilterOptions" class="ability-filter-options"></div><div class="ability-filter-actions"><label class="ability-filter-mode">条件<select id="filterAntiAbilityMode"><option value="or">OR（どれかを含む）</option><option value="and">AND（すべて含む）</option></select></label><button id="antiAbilityFilterClear" type="button">選択を解除</button><button id="antiAbilityFilterDone" class="primary" type="button">決定</button></div></div></div>
     <div id="raceFilterPicker" class="ability-filter-picker race-filter-picker" hidden><div class="ability-filter-card race-filter-card"><div class="ability-filter-head"><strong>種族で絞り込み</strong><button id="raceFilterClose" type="button">×</button></div><input id="raceFilterSearch" type="search" placeholder="種族名を検索" /><div id="raceFilterOptions" class="race-filter-options"></div></div></div>
     <div id="notice" role="status" aria-live="polite"></div>
     <script src="shared-storage-config.js?v=20261111-supabase"></script>
     <script src="shared-storage.js?v=20261111-supabase"></script>
     <script src="character-images.js?v=20261114-image-check-migration"></script>
     <script src="character-catalogs.js"></script>
-    <script src="character-list.js?v=20261114-image-check-migration"></script>
+    <script src="character-list.js?v=20261116-ability-filter-modes"></script>
   </body>
 </html>
 
